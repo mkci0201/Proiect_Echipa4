@@ -1,19 +1,24 @@
 package ro.ubb.flowershop.core.model;
 
+import lombok.*;
 
+import javax.persistence.Entity;
 
+@Entity
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class Employee extends BaseEntity<Integer>{
 
     private String username;
     private String firstName, lastName;
-    private EmployeeRole roleId;
+    private EmployeeRole role;
     private String dateOfBirth, phoneNumber, password;
 
-    public Employee(String username, String firstName, String lastName, EmployeeRole roleId, String dateOfBirth, String phoneNumber, String password) {
+    public Employee(String username, String firstName, String lastName, EmployeeRole role, String dateOfBirth, String phoneNumber, String password) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.roleId = roleId;
+        this.role = role;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
         this.password = password;
@@ -43,12 +48,12 @@ public class Employee extends BaseEntity<Integer>{
         this.lastName = lastName;
     }
 
-    public EmployeeRole getRoleId() {
-        return roleId;
+    public EmployeeRole getRole() {
+        return role;
     }
 
-    public void setRoleId(EmployeeRole roleId) {
-        this.roleId = roleId;
+    public void setRole(EmployeeRole role) {
+        this.role = role;
     }
 
     public String getDateOfBirth() {
@@ -81,7 +86,7 @@ public class Employee extends BaseEntity<Integer>{
                 "username='" + username + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", roleId=" + roleId +
+                ", role=" + role +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", password='" + password + '\'' +

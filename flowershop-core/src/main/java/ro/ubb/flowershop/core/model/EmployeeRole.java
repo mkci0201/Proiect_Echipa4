@@ -1,6 +1,8 @@
 package ro.ubb.flowershop.core.model;
 
-public class EmployeeRole extends BaseEntity<Integer>{
+//enumeration value starts from 0;
 
-    private String name;
+public enum EmployeeRole {
+    ADMINISTRATOR,
+    EMPLOYEE,
 }

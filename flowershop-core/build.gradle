@@ -1,14 +1,14 @@
-plugins {
-    id 'java'
+bootJar {
+    enabled = false
 }
 
-group 'ro.ubb.cluj'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
+jar {
+    enabled = true
 }
+
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'org.postgresql:postgresql'
+
 }
