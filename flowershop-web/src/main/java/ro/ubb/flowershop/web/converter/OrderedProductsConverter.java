@@ -8,7 +8,7 @@ import ro.ubb.flowershop.web.dto.OrderedProductsDto;
 public class OrderedProductsConverter extends BaseConverter<OrderedProducts, OrderedProductsDto>{
     @Override
     public OrderedProducts convertDtoToModel(OrderedProductsDto dto) {
-        OrderedProducts orderedProducts = new OrderedProducts(dto.getPrduct(), dto.getOrder(), dto.getQuantity());
+        OrderedProducts orderedProducts = new OrderedProducts(dto.getProduct(), dto.getOrder(), dto.getQuantity());
         dto.setId(dto.getId());
         return orderedProducts;
     }
