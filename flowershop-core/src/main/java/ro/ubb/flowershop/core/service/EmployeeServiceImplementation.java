@@ -25,19 +25,19 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     @Override
     @Transactional
-    public Employee updateEmployee(int employeeId, String firstName, String lastName, EmployeeRole role, String phoneNumber, String password){
+    public Employee updateEmployee(int employeeId, Employee employee){
 
-        Optional<Employee> employee = employeeRepository.findById(employeeId);
+        Optional<Employee> uEmployee = employeeRepository.findById(employeeId);
 
-        employee.ifPresent(e->{
-            e.setFirstName(firstName);
-            e.setLastName(lastName);
-            e.setRole(role);
-            e.setPhoneNumber(phoneNumber);
-            e.setPassword(password);
+        uEmployee.ifPresent(e->{
+            e.setFirstName(employee.getFirstName());
+            e.setLastName(employee.getLastName());
+            e.setRole(employee.getRole());
+            e.setPhoneNumber(employee.getPhoneNumber());
+            e.setPassword(employee.getPassword());
         });
 
-        return employee.orElse(null);
+        return uEmployee.orElse(null);
     }
 
 

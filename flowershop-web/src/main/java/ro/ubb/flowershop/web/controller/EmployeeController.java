@@ -1,10 +1,9 @@
 package ro.ubb.flowershop.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import ro.ubb.flowershop.core.model.Employee;
 import ro.ubb.flowershop.core.service.EmployeeService;
 import ro.ubb.flowershop.web.converter.EmployeeConverter;
@@ -24,8 +23,7 @@ public class EmployeeController {
     private EmployeeConverter employeeConverter;
 
     @RequestMapping(value = "/employees/", method = RequestMethod.PUT)
-    public EmployeeDto addEmployee(
-            @RequestBody final EmployeeDto dto) {
+    public EmployeeDto addEmployee(@RequestBody EmployeeDto dto) {
 
         Employee newEmployee = employeeService.addEmployee(
                 employeeConverter.convertDtoToModel(dto)
@@ -34,8 +32,25 @@ public class EmployeeController {
         return employeeConverter.convertModelToDto(newEmployee);
     }
 
+    @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.PUT)
+    public EmployeeDto updateEmployee(@PathVariable int employeeId, @RequestBody EmployeeDto dto){
+        return employeeConverter.convertModelToDto(employeeService
+                .updateEmployee(employeeId, employeeConverter.convertDtoToModel(dto)));
+    }
+
+    @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteEmployee(@PathVariable int employeeId){
+
+        employeeService.deleteEmployee(employeeId);
+
+        if(employeeService.getAllEmployees().contains(employeeId)) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }else
+            return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.GET)
-    public EmployeeDto findOne(int employeeId){
+    public EmployeeDto findOne(@PathVariable int employeeId){
 
         Employee employee = employeeService.findOne(employeeId);
 
@@ -49,10 +64,5 @@ public class EmployeeController {
 
         return new ArrayList<>(employeeConverter.convertModelsToDtos(employees));
     }
-
-
-
-
-
 
 }

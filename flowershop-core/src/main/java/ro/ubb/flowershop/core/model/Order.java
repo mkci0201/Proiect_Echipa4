@@ -1,47 +1,32 @@
 package ro.ubb.flowershop.core.model;
 
+import lombok.*;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class Order extends BaseEntity<Integer>{
 
-    private Employee username;
+    @ManyToOne
+    private Employee employee;
     private String date;
-    private OrderStatus statusId;
+    private Category category;
 
-    public Order(Employee username, String date, OrderStatus statusId) {
-        this.username = username;
-        this.date = date;
-        this.statusId = statusId;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private Set<OrderedProducts> orderedProducts = new HashSet<>();
+
+    public Set<Product> getProducts() {
+        return Collections.unmodifiableSet(orderedProducts.stream()
+                .map(OrderedProducts :: getProduct).collect(Collectors.toSet()));
     }
 
-    public Employee getUsername() {
-        return username;
-    }
-
-    public void setUsername(Employee username) {
-        this.username = username;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public OrderStatus getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(OrderStatus statusId) {
-        this.statusId = statusId;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "username=" + username +
-                ", date='" + date + '\'' +
-                ", statusId=" + statusId +
-                '}';
-    }
 }
