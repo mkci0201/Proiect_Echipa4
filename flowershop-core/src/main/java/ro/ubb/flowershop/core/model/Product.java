@@ -2,8 +2,14 @@ package ro.ubb.flowershop.core.model;
 
 import lombok.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.awt.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @NoArgsConstructor
@@ -19,5 +25,12 @@ public class Product extends BaseEntity<Integer>{
     private double price;
     private int stock;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<OrderedProducts> orderedProducts = new HashSet<>();
+
+    public Set<Product> getProduct() {
+        return Collections.unmodifiableSet(orderedProducts.stream()
+                .map(OrderedProducts :: getProduct).collect(Collectors.toSet()));
+    }
 
 }
