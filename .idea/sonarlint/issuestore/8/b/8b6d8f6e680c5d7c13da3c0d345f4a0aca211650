@@ -1,0 +1,13 @@
+
+j
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(๎ู๙๔๙ÿÿÿÿ8นวง/
+j
+java:S4488$"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(ฯฅถู๛ÿÿÿÿ8นวง/
+C
+java:S1452+"&Remove usage of generic wildcard type.(•ํฬฎ8นวง/
+k
+java:S4488*"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(งüผ๋8นวง/
+e
+java:S44885"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ถ๙8นวง/
+e
+java:S4488="HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(๘ฟฑ8นวง/

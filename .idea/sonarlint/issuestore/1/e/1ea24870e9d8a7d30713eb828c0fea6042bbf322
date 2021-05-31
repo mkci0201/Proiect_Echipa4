@@ -1,19 +1,19 @@
 
-a
-java:S4488"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(á³ÚÀùÿÿÿÿ
-U
-java:S1128"BRemove this unused import 'ro.ubb.flowershop.core.model.Employee'.(íìˆm
-J
-java:S2175"1A "List<OrderedProducts>" cannot contain a "int".(òµä»ûÿÿÿÿ
-a
-java:S4488"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(Å¹›“øÿÿÿÿ
-a
-java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‡ÙÌ ùÿÿÿÿ
-g
-java:S4488"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(¥ÚéÊýÿÿÿÿ
-V
-java:S1128"BRemove this unused import 'ro.ubb.flowershop.web.dto.EmployeeDto'.(¨‘†µ
-a
-java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‰™Ùðüÿÿÿÿ
-?
-java:S1452"&Remove usage of generic wildcard type.(Ï„ËÖýÿÿÿÿ
+L
+java:S2175/"1A "List<OrderedProducts>" cannot contain a "int".(òµä»ûÿÿÿÿ
+c
+java:S4488%"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(á³ÚÀùÿÿÿÿ
+A
+java:S1452,"&Remove usage of generic wildcard type.(Ï„ËÖýÿÿÿÿ
+c
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(Å¹›“øÿÿÿÿ
+c
+java:S4488="HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‰™Ùðüÿÿÿÿ
+c
+java:S44885"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‡ÙÌ ùÿÿÿÿ
+X
+java:S1128"BRemove this unused import 'ro.ubb.flowershop.web.dto.EmployeeDto'.(¨‘†µ
+i
+java:S4488+"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(¥ÚéÊýÿÿÿÿ
+W
+java:S1128"BRemove this unused import 'ro.ubb.flowershop.core.model.Employee'.(íìˆm
