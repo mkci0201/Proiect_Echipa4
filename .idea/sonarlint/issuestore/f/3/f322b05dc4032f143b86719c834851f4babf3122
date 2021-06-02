@@ -1,0 +1,12 @@
+
+E
+java:S1128
+"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ
+Y
+java:S1128"CRemove this unused import 'ro.ubb.flowershop.core.model.ShopOrder'.(¯·Ó
+<
+java:S1659"&Declare "lastName" on a separate line.(¿„ëÌ
+D
+java:S1659")Declare "phoneNumber" on a separate line.(¨¬ÜŸşÿÿÿÿ
+A
+java:S1659"&Declare "password" on a separate line.(¨¬ÜŸşÿÿÿÿ

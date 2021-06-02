@@ -7,6 +7,8 @@ C
 java:S1452+"&Remove usage of generic wildcard type.(•íÌ®8¹Ç§œ/
 k
 java:S4488*"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(§ü¼ë8¹Ç§œ/
+H
+java:S2175/"+A "List<ShopOrder>" cannot contain a "int".(«Ÿ€ì8Ù¸şïœ/
 e
 java:S44885"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¶ùœ‰8¹Ç§œ/
 e

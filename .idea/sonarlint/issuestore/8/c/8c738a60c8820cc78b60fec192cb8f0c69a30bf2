@@ -1,0 +1,17 @@
+
+^
+java:S1128"BRemove this unused import 'ro.ubb.flowershop.core.model.Employee'.(íìˆm8õ¿‰ñœ/
+_
+java:S1128"BRemove this unused import 'ro.ubb.flowershop.web.dto.EmployeeDto'.(¨‘†µ8ýÖˆñœ/
+^
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(¢ºõê
+^
+java:S4488%"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(¢ºõê
+<
+java:S1452,"&Remove usage of generic wildcard type.(Ù«ë¥
+d
+java:S4488+"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(–€ÇÑ
+c
+java:S44886"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÿä°¹ýÿÿÿÿ
+c
+java:S4488>"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÿä°¹ýÿÿÿÿ
