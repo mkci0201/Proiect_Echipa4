@@ -2,29 +2,35 @@ ro/ubb/flowershop/core/model/ShopOrder.java
  ro.ubb.flowershop.core.model.ShopOrder
 ro/ubb/flowershop/core/model/ProductColor.java
  ro.ubb.flowershop.core.model.ProductColor
-ro/ubb/flowershop/core/service/EmployeeServiceImplementation.java
- ro.ubb.flowershop.core.service.EmployeeServiceImplementation
+ro/ubb/flowershop/core/repository/OrderRepository.java
+ ro.ubb.flowershop.core.repository.OrderRepository
+ro/ubb/flowershop/core/model/OrderedProduct.java
+ ro.ubb.flowershop.core.model.OrderedProduct
 ro/ubb/flowershop/core/repository/FlowerShopRepository.java
  ro.ubb.flowershop.core.repository.FlowerShopRepository
 ro/ubb/flowershop/core/model/EmployeeRole.java
  ro.ubb.flowershop.core.model.EmployeeRole
 ro/ubb/flowershop/core/service/EmployeeService.java
  ro.ubb.flowershop.core.service.EmployeeService
-ro/ubb/flowershop/core/model/Product.java
- ro.ubb.flowershop.core.model.Product
+ro/ubb/flowershop/core/service/OrderedProductsService.java
+ ro.ubb.flowershop.core.service.OrderedProductsService
 ro/ubb/flowershop/core/repository/OrderedProductsRepository.java
  ro.ubb.flowershop.core.repository.OrderedProductsRepository
 ro/ubb/flowershop/core/model/Category.java
  ro.ubb.flowershop.core.model.Category
 ro/ubb/flowershop/core/model/BaseEntity.java
  ro.ubb.flowershop.core.model.BaseEntity
+ro/ubb/flowershop/core/service/OrderService.java
+ ro.ubb.flowershop.core.service.OrderService
 ro/ubb/flowershop/core/model/Employee.java
  ro.ubb.flowershop.core.model.Employee
 ro/ubb/flowershop/core/repository/EmployeeRepository.java
  ro.ubb.flowershop.core.repository.EmployeeRepository
-ro/ubb/flowershop/core/model/OrderedProduct.java
- ro.ubb.flowershop.core.model.OrderedProduct
-ro/ubb/flowershop/core/service/OrderedProductsService.java
- ro.ubb.flowershop.core.service.OrderedProductsService
+ro/ubb/flowershop/core/model/Product.java
+ ro.ubb.flowershop.core.model.Product
 ro/ubb/flowershop/core/service/OrderedProductsServiceImplementation.java
  ro.ubb.flowershop.core.service.OrderedProductsServiceImplementation
+ro/ubb/flowershop/core/service/OrderServiceImplementation.java
+ ro.ubb.flowershop.core.service.OrderServiceImplementation
+ro/ubb/flowershop/core/service/EmployeeServiceImplementation.java
+ ro.ubb.flowershop.core.service.EmployeeServiceImplementation

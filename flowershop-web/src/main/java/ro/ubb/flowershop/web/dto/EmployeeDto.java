@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ro.ubb.flowershop.core.model.EmployeeRole;
+import ro.ubb.flowershop.core.model.ShopOrder;
+
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +19,6 @@ public class EmployeeDto extends BaseDto{
     private String firstName, lastName;
     private EmployeeRole role;
     private String dateOfBirth, phoneNumber, password;
-
 
 
     @Override

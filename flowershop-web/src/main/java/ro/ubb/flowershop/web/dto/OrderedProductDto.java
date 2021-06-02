@@ -12,6 +12,7 @@ import ro.ubb.flowershop.core.model.Product;
 @Getter
 @Setter
 public class OrderedProductDto extends BaseDto {
+
     private ProductDto product;
     private int quantity;
 

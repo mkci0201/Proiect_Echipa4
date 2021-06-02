@@ -3,7 +3,7 @@ package ro.ubb.flowershop.core.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.ubb.flowershop.core.model.Order;
+import ro.ubb.flowershop.core.model.ShopOrder;
 import ro.ubb.flowershop.core.repository.OrderRepository;
 
 import java.util.List;
@@ -16,20 +16,19 @@ public class OrderServiceImplementation implements OrderService {
     private OrderRepository orderRepository;
 
     @Override
-    public Order addOrder(Order order) {
+    public ShopOrder addOrder(ShopOrder order) {
 
-        Order newOrder = orderRepository.save(order);
+        ShopOrder newOrder = orderRepository.save(order);
         return newOrder;
     }
 
     @Override
     @Transactional
-    public Order updateOrder(int orderId, Order order){
+    public ShopOrder updateOrder(int orderId, ShopOrder order){
 
-        Optional<Order> uOrder = orderRepository.findById(orderId);
+        Optional<ShopOrder> uOrder = orderRepository.findById(orderId);
 
         uOrder.ifPresent(e->{
-            e.setEmployee(order.getEmployee());
             e.setDate(order.getDate());
             e.setCategory(order.getCategory());
         });
@@ -47,14 +46,14 @@ public class OrderServiceImplementation implements OrderService {
     }
 
     @Override
-    public Order findOne(int orderId) {
+    public ShopOrder findOne(int orderId) {
 
-        Order order = orderRepository.findById(orderId).orElseThrow();
+        ShopOrder order = orderRepository.findById(orderId).orElseThrow();
         return order;
     }
 
     @Override
-    public List<Order> getAllOrders() {
+    public List<ShopOrder> getAllOrders() {
 
         return orderRepository.findAll();
     }

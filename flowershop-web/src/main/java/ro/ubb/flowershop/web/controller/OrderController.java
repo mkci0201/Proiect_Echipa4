@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.ubb.flowershop.core.model.Order;
+import ro.ubb.flowershop.core.model.ShopOrder;
 import ro.ubb.flowershop.core.service.OrderService;
 import ro.ubb.flowershop.web.converter.OrderConverter;
-import ro.ubb.flowershop.web.dto.OrderDto;
+import ro.ubb.flowershop.web.dto.ShopOrderDto;
 
 
 import java.util.ArrayList;
@@ -24,9 +24,9 @@ public class OrderController {
     private OrderConverter orderConverter;
 
     @RequestMapping(value = "/orders/", method = RequestMethod.PUT)
-    public OrderDto addOrder(@RequestBody OrderDto dto) {
+    public ShopOrderDto addOrder(@RequestBody ShopOrderDto dto) {
 
-        Order newOrder = orderService.addOrder(
+        ShopOrder newOrder = orderService.addOrder(
                 orderConverter.convertDtoToModel(dto)
         );
 
@@ -34,7 +34,7 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.PUT)
-    public OrderDto updateOrder(@PathVariable int orderId, @RequestBody OrderDto dto){
+    public ShopOrderDto updateOrder(@PathVariable int orderId, @RequestBody ShopOrderDto dto){
         return orderConverter.convertModelToDto(orderService
                 .updateOrder(orderId, orderConverter.convertDtoToModel(dto)));
     }
@@ -51,17 +51,17 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.GET)
-    public OrderDto findOne(@PathVariable int orderId){
+    public ShopOrderDto findOne(@PathVariable int orderId){
 
-        Order order = orderService.findOne(orderId);
+        ShopOrder order = orderService.findOne(orderId);
 
         return orderConverter.convertModelToDto(order);
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public List<OrderDto> getAllOrders() {
+    public List<ShopOrderDto> getAllOrders() {
 
-        List<Order> orders = orderService.getAllOrders();
+        List<ShopOrder> orders = orderService.getAllOrders();
 
         return new ArrayList<>(orderConverter.convertModelsToDtos(orders));
     }

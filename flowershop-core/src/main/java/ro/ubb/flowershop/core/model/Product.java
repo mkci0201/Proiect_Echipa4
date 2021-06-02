@@ -25,5 +25,4 @@ public class Product extends BaseEntity<Integer>{
     private double price;
     private int stock;
 
-
 }

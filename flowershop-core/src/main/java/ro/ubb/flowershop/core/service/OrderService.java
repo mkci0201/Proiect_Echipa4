@@ -1,15 +1,15 @@
 package ro.ubb.flowershop.core.service;
 
-import ro.ubb.flowershop.core.model.Order;
+import ro.ubb.flowershop.core.model.ShopOrder;
 
 import java.util.List;
 
 public interface OrderService {
-    Order addOrder(Order order);
-    Order updateOrder(int orderId, Order order);
+    ShopOrder addOrder(ShopOrder order);
+    ShopOrder updateOrder(int orderId, ShopOrder order);
     void deleteOrder(int orderId);
 
-    Order findOne(int orderId);
-    List<Order> getAllOrders();
+    ShopOrder findOne(int orderId);
+    List<ShopOrder> getAllOrders();
 
 }
