@@ -789,7 +789,7 @@ false Zulu
     <database id="2" parent="1" name="FlowerShop">
       <ObjectId>24779</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>837</IntrospectionStateNumber>
+      <IntrospectionStateNumber>891</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="PersonDataBase">
@@ -878,7 +878,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>838</IntrospectionStateNumber>
+      <IntrospectionStateNumber>892</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="24" parent="2" name="heap">
@@ -948,5 +948,374 @@ false Zulu
     <language id="33" parent="2" name="internal"/>
     <language id="34" parent="2" name="plpgsql"/>
     <language id="35" parent="2" name="sql"/>
+    <sequence id="36" parent="23" name="hibernate_sequence">
+      <ObjectId>24981</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>842</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <table id="37" parent="23" name="employee">
+      <ObjectId>25030</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>886</StateNumber>
+    </table>
+    <table id="38" parent="23" name="employee_shop_order_set">
+      <ObjectId>25038</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>885</StateNumber>
+    </table>
+    <table id="39" parent="23" name="ordered_product">
+      <ObjectId>25043</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>887</StateNumber>
+    </table>
+    <table id="40" parent="23" name="product">
+      <ObjectId>25048</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>887</StateNumber>
+    </table>
+    <table id="41" parent="23" name="shop_order">
+      <ObjectId>25056</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>885</StateNumber>
+    </table>
+    <table id="42" parent="23" name="shop_order_ordered_products">
+      <ObjectId>25061</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>888</StateNumber>
+    </table>
+    <column id="43" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>875</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="44" parent="37" name="date_of_birth">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="45" parent="37" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="46" parent="37" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="47" parent="37" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="48" parent="37" name="phone_number">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="49" parent="37" name="role">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="50" parent="37" name="username">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>875</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="51" parent="37" name="employee_pkey">
+      <ObjectId>25036</ObjectId>
+      <StateNumber>875</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="52" parent="37" name="employee_pkey">
+      <ObjectId>25037</ObjectId>
+      <StateNumber>875</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>employee_pkey</UnderlyingIndexName>
+    </key>
+    <column id="53" parent="38" name="employee_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>876</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="54" parent="38" name="shop_order_set_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>876</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="55" parent="38" name="employee_shop_order_set_pkey">
+      <ObjectId>25041</ObjectId>
+      <StateNumber>876</StateNumber>
+      <ColNames>employee_id
+shop_order_set_id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="56" parent="38" name="uk_8i9bxkcw1r89aagba10n0ceo4">
+      <ObjectId>25066</ObjectId>
+      <StateNumber>882</StateNumber>
+      <ColNames>shop_order_set_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="38" name="employee_shop_order_set_pkey">
+      <ObjectId>25042</ObjectId>
+      <StateNumber>876</StateNumber>
+      <ColNames>employee_id
+shop_order_set_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>employee_shop_order_set_pkey</UnderlyingIndexName>
+    </key>
+    <key id="58" parent="38" name="uk_8i9bxkcw1r89aagba10n0ceo4">
+      <ObjectId>25067</ObjectId>
+      <StateNumber>882</StateNumber>
+      <ColNames>shop_order_set_id</ColNames>
+      <UnderlyingIndexName>uk_8i9bxkcw1r89aagba10n0ceo4</UnderlyingIndexName>
+    </key>
+    <foreign-key id="59" parent="38" name="fkn1uo1sjxv0jumroqeunqjcmev">
+      <ObjectId>25075</ObjectId>
+      <StateNumber>886</StateNumber>
+      <ColNames>employee_id</ColNames>
+      <RefTableId>25030</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>employee</RefTableName>
+      <RefKeyName>employee_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="60" parent="38" name="fkkq0l5mr4bh922cwvftydri9yx">
+      <ObjectId>25070</ObjectId>
+      <StateNumber>885</StateNumber>
+      <ColNames>shop_order_set_id</ColNames>
+      <RefTableId>25056</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>shop_order</RefTableName>
+      <RefKeyName>shop_order_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="61" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>877</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="62" parent="39" name="quantity">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>877</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="63" parent="39" name="product_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>877</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="64" parent="39" name="ordered_product_pkey">
+      <ObjectId>25046</ObjectId>
+      <StateNumber>877</StateNumber>
+      <ColNames>product_id
+id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="65" parent="39" name="ordered_product_pkey">
+      <ObjectId>25047</ObjectId>
+      <StateNumber>877</StateNumber>
+      <ColNames>product_id
+id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>ordered_product_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="66" parent="39" name="fkcbk8xvg3o4s3ard6hv25p4jqc">
+      <ObjectId>25080</ObjectId>
+      <StateNumber>887</StateNumber>
+      <ColNames>product_id</ColNames>
+      <RefTableId>25048</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>product</RefTableName>
+      <RefKeyName>product_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="67" parent="40" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>878</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="68" parent="40" name="color">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>878</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="69" parent="40" name="description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>878</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="70" parent="40" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>878</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="71" parent="40" name="price">
+      <Position>5</Position>
+      <DataType>double precision|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>878</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="72" parent="40" name="stock">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>878</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="73" parent="40" name="product_pkey">
+      <ObjectId>25054</ObjectId>
+      <StateNumber>878</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="74" parent="40" name="product_pkey">
+      <ObjectId>25055</ObjectId>
+      <StateNumber>878</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>product_pkey</UnderlyingIndexName>
+    </key>
+    <column id="75" parent="41" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>879</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="76" parent="41" name="category">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>879</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="77" parent="41" name="date">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>879</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="78" parent="41" name="shop_order_pkey">
+      <ObjectId>25059</ObjectId>
+      <StateNumber>879</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="79" parent="41" name="shop_order_pkey">
+      <ObjectId>25060</ObjectId>
+      <StateNumber>879</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>shop_order_pkey</UnderlyingIndexName>
+    </key>
+    <column id="80" parent="42" name="shop_order_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>880</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="81" parent="42" name="ordered_products_product_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>880</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="82" parent="42" name="ordered_products_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>880</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="83" parent="42" name="shop_order_ordered_products_pkey">
+      <ObjectId>25064</ObjectId>
+      <StateNumber>880</StateNumber>
+      <ColNames>shop_order_id
+ordered_products_product_id
+ordered_products_id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="84" parent="42" name="uk_hlxynwfodl6hwuhlqgrot04k7">
+      <ObjectId>25068</ObjectId>
+      <StateNumber>884</StateNumber>
+      <ColNames>ordered_products_product_id
+ordered_products_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="42" name="shop_order_ordered_products_pkey">
+      <ObjectId>25065</ObjectId>
+      <StateNumber>880</StateNumber>
+      <ColNames>shop_order_id
+ordered_products_product_id
+ordered_products_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>shop_order_ordered_products_pkey</UnderlyingIndexName>
+    </key>
+    <key id="86" parent="42" name="uk_hlxynwfodl6hwuhlqgrot04k7">
+      <ObjectId>25069</ObjectId>
+      <StateNumber>884</StateNumber>
+      <ColNames>ordered_products_product_id
+ordered_products_id</ColNames>
+      <UnderlyingIndexName>uk_hlxynwfodl6hwuhlqgrot04k7</UnderlyingIndexName>
+    </key>
+    <foreign-key id="87" parent="42" name="fkecd0feptn4dtgh34wh6ptrqln">
+      <ObjectId>25090</ObjectId>
+      <StateNumber>889</StateNumber>
+      <ColNames>shop_order_id</ColNames>
+      <RefTableId>25056</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>shop_order</RefTableName>
+      <RefKeyName>shop_order_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="88" parent="42" name="fkmsrx3mtbppg3182donndt8e9y">
+      <ObjectId>25085</ObjectId>
+      <StateNumber>888</StateNumber>
+      <ColNames>ordered_products_product_id
+ordered_products_id</ColNames>
+      <RefTableId>25043</RefTableId>
+      <RefColPositions>3,1</RefColPositions>
+      <RefTableName>ordered_product</RefTableName>
+      <RefKeyName>ordered_product_pkey</RefKeyName>
+      <RefColNames>product_id
+id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

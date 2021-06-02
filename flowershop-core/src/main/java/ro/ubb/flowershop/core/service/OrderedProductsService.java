@@ -1,15 +1,17 @@
 package ro.ubb.flowershop.core.service;
 
-import ro.ubb.flowershop.core.model.OrderedProducts;
+import org.springframework.stereotype.Service;
+import ro.ubb.flowershop.core.model.OrderedProduct;
 
 import java.util.List;
 
+@Service
 public interface OrderedProductsService {
 
-    OrderedProducts addOrderedProducts(OrderedProducts orderedProducts);
-    OrderedProducts updateOrderedProducts(int orderedProductsId, OrderedProducts orderedProducts);
+    OrderedProduct addOrderedProducts(OrderedProduct orderedProduct);
+    OrderedProduct updateOrderedProducts(int orderedProductsId, OrderedProduct orderedProduct);
     void delete(int orderedProductsId);
-    OrderedProducts findOne(int orderedProductsId);
+    OrderedProduct findOne(int orderedProductsId);
 
-    List<OrderedProducts> getAllOrderedProducts();
+    List<OrderedProduct> getAllOrderedProducts();
 }

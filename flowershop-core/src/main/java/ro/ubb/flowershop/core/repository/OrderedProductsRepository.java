@@ -1,6 +1,6 @@
 package ro.ubb.flowershop.core.repository;
 
-import ro.ubb.flowershop.core.model.OrderedProducts;
+import ro.ubb.flowershop.core.model.OrderedProduct;
 
-public interface OrderedProductsRepository extends FlowerShopRepository<OrderedProducts, Integer>{
+public interface OrderedProductsRepository extends FlowerShopRepository<OrderedProduct, Integer>{
 }

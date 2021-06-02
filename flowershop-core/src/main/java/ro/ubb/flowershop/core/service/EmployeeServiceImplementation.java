@@ -1,6 +1,7 @@
 package ro.ubb.flowershop.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.ubb.flowershop.core.model.Employee;
@@ -10,7 +11,7 @@ import ro.ubb.flowershop.core.repository.EmployeeRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Component
 public class EmployeeServiceImplementation implements EmployeeService {
 
     @Autowired

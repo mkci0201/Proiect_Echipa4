@@ -3,6 +3,7 @@ package ro.ubb.flowershop.core.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -17,7 +18,8 @@ public class Employee extends BaseEntity<Integer>{
     private EmployeeRole role;
     private String dateOfBirth, phoneNumber, password;
 
-    //@ManyToOne
-    //private Order order;
+    @OneToMany
+    private Set<ShopOrder> shopOrderSet;
+
 
 }

@@ -25,12 +25,5 @@ public class Product extends BaseEntity<Integer>{
     private double price;
     private int stock;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<OrderedProducts> orderedProducts = new HashSet<>();
-
-    public Set<Product> getProduct() {
-        return Collections.unmodifiableSet(orderedProducts.stream()
-                .map(OrderedProducts :: getProduct).collect(Collectors.toSet()));
-    }
 
 }

@@ -1,11 +1,15 @@
 package ro.ubb.flowershop.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import ro.ubb.flowershop.core.model.Employee;
 import ro.ubb.flowershop.core.service.EmployeeService;
+
 import ro.ubb.flowershop.web.converter.EmployeeConverter;
 import ro.ubb.flowershop.web.dto.EmployeeDto;
 
@@ -13,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
 public class EmployeeController {
 
     @Autowired
@@ -22,7 +25,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeConverter employeeConverter;
 
-    @RequestMapping(value = "/employees/", method = RequestMethod.PUT)
+    /*@RequestMapping(value = "/employees", method = RequestMethod.PUT)
     public EmployeeDto addEmployee(@RequestBody EmployeeDto dto) {
 
         Employee newEmployee = employeeService.addEmployee(
@@ -48,14 +51,14 @@ public class EmployeeController {
         }else
             return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.GET)
+*/
+   /* @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.GET)
     public EmployeeDto findOne(@PathVariable int employeeId){
 
         Employee employee = employeeService.findOne(employeeId);
 
         return employeeConverter.convertModelToDto(employee);
-    }
+    }*/
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
     public List<EmployeeDto> getAllEmployees() {
@@ -64,5 +67,4 @@ public class EmployeeController {
 
         return new ArrayList<>(employeeConverter.convertModelsToDtos(employees));
     }
-
 }

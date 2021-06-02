@@ -9,11 +9,11 @@ public class EmployeeConverter extends BaseConverter<Employee, EmployeeDto>{
 
     @Override
     public Employee convertDtoToModel(EmployeeDto dto) {
-        Employee employee = new Employee( dto.getUsername(), dto.getFirstName(),
+        /*Employee employee = new Employee( dto.getUsername(), dto.getFirstName(),
                 dto.getLastName(), dto.getRole(), dto.getDateOfBirth(),
                 dto.getPhoneNumber(), dto.getPassword());
-        dto.setId(dto.getId());
-        return employee;
+        dto.setId(dto.getId());*/
+        return null;
     }
 
 /*    @Override

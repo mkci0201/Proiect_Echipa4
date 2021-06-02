@@ -1,37 +1,37 @@
 package ro.ubb.flowershop.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import ro.ubb.flowershop.core.model.OrderedProducts;
+import org.springframework.stereotype.Component;
+import ro.ubb.flowershop.core.model.OrderedProduct;
 import ro.ubb.flowershop.core.repository.OrderedProductsRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Component
 public class OrderedProductsServiceImplementation implements OrderedProductsService {
 
     @Autowired
     private OrderedProductsRepository orderedProductsRepository;
 
     @Override
-    public OrderedProducts addOrderedProducts(OrderedProducts orderedProducts) {
-        OrderedProducts newOrderedProducts = orderedProductsRepository.save(orderedProducts);
-        return newOrderedProducts;
+    public OrderedProduct addOrderedProducts(OrderedProduct orderedProduct) {
+        OrderedProduct newOrderedProduct = orderedProductsRepository.save(orderedProduct);
+        return newOrderedProduct;
     }
 
     @Override
     @Transactional
-    public OrderedProducts updateOrderedProducts(int orderedProductsId, OrderedProducts orderedProducts) {
+    public OrderedProduct updateOrderedProducts(int orderedProductsId, OrderedProduct orderedProduct) {
 
-        Optional<OrderedProducts> uOrderedProducts = orderedProductsRepository.findById(orderedProductsId);
+        Optional<OrderedProduct> uOrderedProducts = orderedProductsRepository.findById(orderedProductsId);
 
-        uOrderedProducts.ifPresent(e->{
-            e.setProduct(orderedProducts.getProduct());
-            e.setOrder(orderedProducts.getOrder());
-            e.setQuantity(orderedProducts.getQuantity());
-        });
+        /*uOrderedProducts.ifPresent(e->{
+            e.setProduct(orderedProduct.getProduct());
+            e.setShopOrder(orderedProduct.getShopOrder());
+            e.setQuantity(orderedProduct.getQuantity());
+        });*/
 
         return uOrderedProducts.orElse(null);
     }
@@ -42,13 +42,13 @@ public class OrderedProductsServiceImplementation implements OrderedProductsServ
     }
 
     @Override
-    public OrderedProducts findOne(int orderedProductsId) {
-        OrderedProducts orderedProducts = orderedProductsRepository.findById(orderedProductsId).orElseThrow();
-        return orderedProducts;
+    public OrderedProduct findOne(int orderedProductsId) {
+        OrderedProduct orderedProduct = orderedProductsRepository.findById(orderedProductsId).orElseThrow();
+        return orderedProduct;
     }
 
     @Override
-    public List<OrderedProducts> getAllOrderedProducts() {
+    public List<OrderedProduct> getAllOrderedProducts() {
         return orderedProductsRepository.findAll();
     }
 }

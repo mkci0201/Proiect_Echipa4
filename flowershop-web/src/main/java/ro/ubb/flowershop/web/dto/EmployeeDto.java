@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
 import ro.ubb.flowershop.core.model.EmployeeRole;
-import ro.ubb.flowershop.core.model.Order;
 
 @NoArgsConstructor
 @AllArgsConstructor

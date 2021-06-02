@@ -1,23 +1,23 @@
 package ro.ubb.flowershop.web.converter;
 
 import org.springframework.stereotype.Component;
-import ro.ubb.flowershop.core.model.OrderedProducts;
-import ro.ubb.flowershop.web.dto.OrderedProductsDto;
+import ro.ubb.flowershop.core.model.OrderedProduct;
+import ro.ubb.flowershop.web.dto.OrderedProductDto;
 
 @Component
-public class OrderedProductsConverter extends BaseConverter<OrderedProducts, OrderedProductsDto>{
+public class OrderedProductsConverter extends BaseConverter<OrderedProduct, OrderedProductDto>{
     @Override
-    public OrderedProducts convertDtoToModel(OrderedProductsDto dto) {
-        OrderedProducts orderedProducts = new OrderedProducts(dto.getProduct(), dto.getOrder(), dto.getQuantity());
+    public OrderedProduct convertDtoToModel(OrderedProductDto dto) {
+        OrderedProduct orderedProduct = null;//new OrderedProduct(dto.getProduct(), dto.getShopOrder(), dto.getQuantity());
         dto.setId(dto.getId());
-        return orderedProducts;
+        return orderedProduct;
     }
 
     @Override
-    public OrderedProductsDto convertModelToDto(OrderedProducts orderedProducts) {
-        OrderedProductsDto orderedProductsDto = new OrderedProductsDto(orderedProducts.getProduct(),
-                orderedProducts.getOrder(), orderedProducts.getQuantity());
-        OrderedProductsDto.setId(orderedProducts.getId());
-        return orderedProductsDto;
+    public OrderedProductDto convertModelToDto(OrderedProduct orderedProduct) {
+        OrderedProductDto orderedProductDto = null;//new OrderedProductDto(orderedProduct.getProduct(),
+                //orderedProduct.getShopOrder(), orderedProduct.getQuantity());
+        //OrderedProductDto.setId(orderedProduct.getId());
+        return orderedProductDto;
     }
 }
