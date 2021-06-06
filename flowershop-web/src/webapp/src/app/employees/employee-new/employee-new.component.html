@@ -1,0 +1,40 @@
+<h3>Add Employee</h3>
+
+<div>
+  <label>Username:</label>
+  <input #employeeUserName/>
+</div>
+
+<div>
+  <label>First Name:</label>
+  <input #employeeFirstName/>
+</div>
+
+<div>
+  <label>Last Name:</label>
+  <input #employeeLastName/>
+</div>
+
+<div>
+  <label>Role:</label>
+  <input #employeeRole/>
+</div>
+<div>
+  <label>Date of Birth dd/mm/yyyy:</label>
+  <input #employeeDateOfBirth/>
+</div>
+<div>
+  <label>Phone Number:</label>
+  <input #employeePhoneNumber/>
+</div>
+
+<div>
+  <label>Password:</label>
+  <input #employeePassword/>
+</div>
+
+<div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="addEmployee(employeeUserName.value, employeeFirstName.value, employeeLastName.value,
+  employeeRole.value, employeeDateOfBirth.value, employeePhoneNumber.value, employeePassword.value)">Save</button>
+</div>
