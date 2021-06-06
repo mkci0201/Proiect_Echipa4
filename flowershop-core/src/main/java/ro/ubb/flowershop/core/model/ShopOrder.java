@@ -9,6 +9,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class ShopOrder extends BaseEntity<Integer>{

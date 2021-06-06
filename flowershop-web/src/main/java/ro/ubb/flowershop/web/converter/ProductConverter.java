@@ -9,7 +9,7 @@ public class ProductConverter extends BaseConverter<Product, ProductDto> {
 
     @Override
     public Product convertDtoToModel(ProductDto dto) {
-        Product product=null; // new Product(dto.getName(), dto.getDescription(), dto.getColor(), dto.getPrice(), dto.getStock());
+        Product product=new Product(dto.getName(), dto.getDescription(), dto.getColor(), dto.getPrice(), dto.getStock());
         dto.setId(dto.getId());
         return product;
     }

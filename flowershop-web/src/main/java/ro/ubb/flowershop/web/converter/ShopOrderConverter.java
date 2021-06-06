@@ -16,9 +16,11 @@ public class ShopOrderConverter extends BaseConverter<ShopOrder, ShopOrderDto>{
 
     @Override
     public ShopOrder convertDtoToModel(ShopOrderDto dto) {
-        //TODO: update shop order converter
-        ShopOrder order = null;
-                //new ShopOrder(dto.getDate(), dto.getCategory());
+        ShopOrder order = ShopOrder.builder()
+                .date(dto.getDate())
+                .category(dto.getCategory())
+                .build();
+
         dto.setId(dto.getId());
         return order;
     }

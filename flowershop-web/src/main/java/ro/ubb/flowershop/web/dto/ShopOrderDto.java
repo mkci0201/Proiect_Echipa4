@@ -1,9 +1,6 @@
 package ro.ubb.flowershop.web.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import ro.ubb.flowershop.core.model.Category;
 
 

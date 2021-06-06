@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.ubb.flowershop.core.model.ShopOrder;
 import ro.ubb.flowershop.core.service.OrderService;
-import ro.ubb.flowershop.web.converter.OrderConverter;
+import ro.ubb.flowershop.web.converter.ShopOrderConverter;
 import ro.ubb.flowershop.web.dto.ShopOrderDto;
 
 
@@ -21,7 +21,7 @@ public class OrderController {
     private OrderService orderService;
 
     @Autowired
-    private OrderConverter orderConverter;
+    private ShopOrderConverter orderConverter;
 
     @RequestMapping(value = "/orders/", method = RequestMethod.PUT)
     public ShopOrderDto addOrder(@RequestBody ShopOrderDto dto) {

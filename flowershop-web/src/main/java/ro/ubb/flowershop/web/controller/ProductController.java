@@ -34,7 +34,7 @@ public class ProductController {
         return productConverter.convertModelToDto(newProduct);
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.PUT)
+    @RequestMapping(value = "/products/{productId}", method = RequestMethod.PUT)
     public ProductDto updateProduct(@PathVariable int productId, @RequestBody ProductDto dto){
         return productConverter.convertModelToDto(productService
         .updateProducts(productId, productConverter.convertDtoToModel(dto)));
@@ -51,7 +51,7 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
     public ProductDto findOne(@PathVariable int productId){
 
         Product product = productService.findOne(productId);

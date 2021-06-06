@@ -4,14 +4,18 @@ ro/ubb/flowershop/web/dto/BaseDto.java
  ro.ubb.flowershop.web.dto.BaseDto
 ro/ubb/flowershop/web/dto/ProductDto.java
  ro.ubb.flowershop.web.dto.ProductDto
-ro/ubb/flowershop/web/controller/EmployeeController.java
- ro.ubb.flowershop.web.controller.EmployeeController
+ro/ubb/flowershop/web/converter/Converter.java
+ ro.ubb.flowershop.web.converter.Converter
 ro/ubb/flowershop/web/converter/BaseConverter.java
  ro.ubb.flowershop.web.converter.BaseConverter
 ro/ubb/flowershop/web/controller/OrderController.java
  ro.ubb.flowershop.web.controller.OrderController
+ro/ubb/flowershop/web/converter/ShopOrderConverter.java
+ ro.ubb.flowershop.web.converter.ShopOrderConverter
 ro/ubb/flowershop/web/dto/ShopOrderDto.java
  ro.ubb.flowershop.web.dto.ShopOrderDto
+ro/ubb/flowershop/web/controller/ProductController.java
+ ro.ubb.flowershop.web.controller.ProductController
 ro/ubb/flowershop/web/config/WebConfig.java
  ro.ubb.flowershop.web.config.WebConfig
  ro.ubb.flowershop.web.config.WebConfig$1
@@ -21,9 +25,9 @@ ro/ubb/flowershop/web/converter/EmployeeConverter.java
  ro.ubb.flowershop.web.converter.EmployeeConverter
 ro/ubb/flowershop/web/controller/OrderedProductsController.java
  ro.ubb.flowershop.web.controller.OrderedProductsController
+ro/ubb/flowershop/web/converter/ProductConverter.java
+ ro.ubb.flowershop.web.converter.ProductConverter
 ro/ubb/flowershop/web/dto/EmployeeDto.java
  ro.ubb.flowershop.web.dto.EmployeeDto
-ro/ubb/flowershop/web/converter/OrderConverter.java
- ro.ubb.flowershop.web.converter.OrderConverter
-ro/ubb/flowershop/web/converter/Converter.java
- ro.ubb.flowershop.web.converter.Converter
+ro/ubb/flowershop/web/controller/EmployeeController.java
+ ro.ubb.flowershop.web.controller.EmployeeController

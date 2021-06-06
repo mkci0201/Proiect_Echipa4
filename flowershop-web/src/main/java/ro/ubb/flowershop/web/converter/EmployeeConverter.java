@@ -7,23 +7,23 @@ import ro.ubb.flowershop.web.dto.EmployeeDto;
 @Component
 public class EmployeeConverter extends BaseConverter<Employee, EmployeeDto>{
 
+
     @Override
     public Employee convertDtoToModel(EmployeeDto dto) {
-        /*Employee employee = new Employee( dto.getUsername(), dto.getFirstName(),
-                dto.getLastName(), dto.getRole(), dto.getDateOfBirth(),
-                dto.getPhoneNumber(), dto.getPassword());
-        dto.setId(dto.getId());*/
-        return null;
-    }
 
-/*    @Override
-    public Employee convertDtoToModel(EmployeeDto dto) {
-        Employee employee = new Employee( dto.getFirstName(),
-                dto.getLastName(), dto.getRole(), dto.getDateOfBirth(),
-                dto.getPhoneNumber(), dto.getPassword());
-        dto.setId(dto.getId());
+        Employee employee = Employee.builder()
+                .username(dto.getUsername())
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
+                .role(dto.getRole())
+                .dateOfBirth(dto.getDateOfBirth())
+                .phoneNumber(dto.getPhoneNumber())
+                .password(dto.getPassword())
+                .build();
+
+        employee.setId(dto.getId());
         return employee;
-    }*/
+    }
 
     @Override
     public EmployeeDto convertModelToDto(Employee employee) {

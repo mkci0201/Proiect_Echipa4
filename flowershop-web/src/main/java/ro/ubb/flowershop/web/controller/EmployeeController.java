@@ -25,7 +25,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeConverter employeeConverter;
 
-    /*@RequestMapping(value = "/employees", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/employees", method = RequestMethod.POST)
     public EmployeeDto addEmployee(@RequestBody EmployeeDto dto) {
 
         Employee newEmployee = employeeService.addEmployee(
@@ -35,13 +35,13 @@ public class EmployeeController {
         return employeeConverter.convertModelToDto(newEmployee);
     }
 
-    @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/employees/{employeeId}", method = RequestMethod.PUT)
     public EmployeeDto updateEmployee(@PathVariable int employeeId, @RequestBody EmployeeDto dto){
         return employeeConverter.convertModelToDto(employeeService
                 .updateEmployee(employeeId, employeeConverter.convertDtoToModel(dto)));
     }
 
-    @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/employees/{employeeId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteEmployee(@PathVariable int employeeId){
 
         employeeService.deleteEmployee(employeeId);
@@ -51,16 +51,15 @@ public class EmployeeController {
         }else
             return new ResponseEntity<>(HttpStatus.OK);
     }
-*/
-   /* @RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/employees/{employeeId}", method = RequestMethod.GET)
     public EmployeeDto findOne(@PathVariable int employeeId){
 
         Employee employee = employeeService.findOne(employeeId);
 
         return employeeConverter.convertModelToDto(employee);
-    }*/
+    }
 
-    @RequestMapping(value = "/employees", method = RequestMethod.GET)
+    @RequestMapping(value = "api/employees", method = RequestMethod.GET)
     public List<EmployeeDto> getAllEmployees() {
 
         List<Employee> employees = employeeService.getAllEmployees();
