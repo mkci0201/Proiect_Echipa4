@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/FlowerShop</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="FlowerShop@localhost [2]" uuid="1c1d67ac-fabb-45ae-bae2-b5f4082cc5b6">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/FlowerShop</jdbc-url>
+    </data-source>
   </component>
 </project>

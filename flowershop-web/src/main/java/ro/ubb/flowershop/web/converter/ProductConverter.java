@@ -1,6 +1,7 @@
 package ro.ubb.flowershop.web.converter;
 
 import org.springframework.stereotype.Component;
+import ro.ubb.flowershop.core.model.Employee;
 import ro.ubb.flowershop.core.model.Product;
 import ro.ubb.flowershop.web.dto.ProductDto;
 
@@ -9,8 +10,16 @@ public class ProductConverter extends BaseConverter<Product, ProductDto> {
 
     @Override
     public Product convertDtoToModel(ProductDto dto) {
-        Product product=new Product(dto.getName(), dto.getDescription(), dto.getColor(), dto.getPrice(), dto.getStock());
-        dto.setId(dto.getId());
+
+        Product product = Product.builder()
+                .name(dto.getName())
+                .description(dto.getDescription())
+                .color(dto.getColor())
+                .price(dto.getPrice())
+                .stock(dto.getStock())
+                .build();
+
+        product.setId(dto.getId());
         return product;
     }
 

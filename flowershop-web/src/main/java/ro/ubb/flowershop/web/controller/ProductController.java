@@ -24,7 +24,7 @@ public class ProductController {
     @Autowired
     private ProductConverter productConverter;
 
-    @RequestMapping(value = "/products", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/products", method = RequestMethod.POST)
     public ProductDto addProduct(@RequestBody ProductDto dto) {
 
         Product newProduct = productService.addProduct(
@@ -34,13 +34,13 @@ public class ProductController {
         return productConverter.convertModelToDto(newProduct);
     }
 
-    @RequestMapping(value = "/products/{productId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/products/{productId}", method = RequestMethod.PUT)
     public ProductDto updateProduct(@PathVariable int productId, @RequestBody ProductDto dto){
         return productConverter.convertModelToDto(productService
         .updateProducts(productId, productConverter.convertDtoToModel(dto)));
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/products/{productId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteEmployee(@PathVariable int productId){
 
         productService.deleteProduct(productId);
@@ -51,7 +51,7 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/products/{productId}", method = RequestMethod.GET)
     public ProductDto findOne(@PathVariable int productId){
 
         Product product = productService.findOne(productId);
@@ -59,7 +59,7 @@ public class ProductController {
         return productConverter.convertModelToDto(product);
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "api/products", method = RequestMethod.GET)
     public List<ProductDto> getAllProducts() {
 
         List<Product> products = productService.getAllProducts();

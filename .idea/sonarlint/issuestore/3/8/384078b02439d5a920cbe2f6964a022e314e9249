@@ -1,9 +1,0 @@
-
-a
-java:S1128"FRemove this unused import 'org.springframework.stereotype.Controller'.(øŠ—Öùÿÿÿÿ
-l
-java:S1128"QRemove this unused import 'org.springframework.context.annotation.ComponentScan'.(æëòÒûÿÿÿÿ
-c
-java:S4488?"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ŸÄ¡´øÿÿÿÿ
-V	java:S125"<This block of commented-out lines of code should be removed.(¬˜ç¤øÿÿÿÿ
-Q	java:S1258"<This block of commented-out lines of code should be removed.(ºÑé

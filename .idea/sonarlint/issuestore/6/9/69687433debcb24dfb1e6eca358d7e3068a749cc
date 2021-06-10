@@ -1,4 +1,7 @@
 
-P	java:S125"<This block of commented-out lines of code should be removed.(şà…6
+W
+java:S1128"BRemove this unused import 'ro.ubb.flowershop.core.model.Employee'.(íìˆm
 J
-java:S6212"/Declare this local variable with "var" instead.(çèöŒÿÿÿÿÿ
+java:S6212"/Declare this local variable with "var" instead.(ì“¢–şÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(çèöŒÿÿÿÿÿ

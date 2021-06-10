@@ -1,7 +1,0 @@
-
-u
-java:S14884"_Immediately return this expression instead of assigning it to the temporary variable "product".(°øï
-T
-java:S1854">Remove this useless assignment to local variable "newProduct".(¸ÂÍ³
-E
-java:S1481"/Remove this unused "newProduct" local variable.(¸ÂÍ³

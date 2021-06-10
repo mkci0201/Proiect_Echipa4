@@ -1,0 +1,18 @@
+<div *ngIf="selectedProduct">
+  <h2>
+    {{selectedProduct.name}} was selected
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+
+<h2>Products</h2>
+<ol class="products">
+  <li *ngFor="let product of products "
+      [class.selected]="product === selectedProduct"
+      (click)="onSelect(product)">
+    {{product.name}}
+    <button class="delete"
+            (click)="delete(product); $event.stopPropagation()">x
+    </button>
+  </li>
+</ol>

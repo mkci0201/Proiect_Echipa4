@@ -11,6 +11,11 @@ import {AppRoutingModule} from "./app-routing.module";
 import {EmployeeService} from "./employees/shared/employee.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductNewComponent } from './products/product-new/product-new.component';
+import {ProductService} from "./products/shared/product.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +23,11 @@ import {CommonModule} from "@angular/common";
     EmployeesComponent,
     EmployeeDetailsComponent,
     EmployeeListComponent,
-    EmployeeNewComponent
+    EmployeeNewComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+    ProductListComponent,
+    ProductNewComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,7 @@ import {CommonModule} from "@angular/common";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

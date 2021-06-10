@@ -1,0 +1,26 @@
+<div *ngIf="product">
+  <h2> {{product.name}} details:</h2>
+  <div>
+    <label>Name:</label>{{product.name}}
+    <input [(ngModel)] = "product.name" placeholder="Name"/>
+
+  </div>
+  <div>
+    <label>Description:</label>{{product.description}}
+    <input [(ngModel)] = "product.description" placeholder="Description"/>
+  </div>
+  <div>
+    <label>Color:</label>{{product.color}}
+    <input [(ngModel)] = "product.color" placeholder="Color"/>
+  </div>
+  <div>
+    <label>Price:</label>{{product.price}}
+    <input [(ngModel)] = "product.price" placeholder="Price"/>
+  </div>
+  <div>
+    <label>Stock:</label>{{product.stock}}
+    <input [(ngModel)] = "product.stock" placeholder="Stock"/>
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
