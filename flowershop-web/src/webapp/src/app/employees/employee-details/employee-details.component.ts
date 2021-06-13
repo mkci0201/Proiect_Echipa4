@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Employee} from "../shared/employee.model";
+import {Employee, EMPLOYEE_ROLE_TYPES} from "../shared/employee.model";
 import {EmployeeService} from "../shared/employee.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {switchMap} from "rxjs/operators";
@@ -14,6 +14,7 @@ import {Location} from '@angular/common';
 export class EmployeeDetailsComponent implements OnInit {
 
   @Input() employee : Employee;
+  EMPLOYEE_ROLE_TYPES = EMPLOYEE_ROLE_TYPES;
 
   constructor(private employeeService: EmployeeService,
               private route: ActivatedRoute,

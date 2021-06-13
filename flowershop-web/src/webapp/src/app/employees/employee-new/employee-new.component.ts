@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from "../shared/employee.service";
 import {Location} from '@angular/common';
+import { EMPLOYEE_ROLE_TYPES } from '../shared/employee.model';
 
 @Component({
   moduleId: module.id,
@@ -9,6 +10,9 @@ import {Location} from '@angular/common';
   styleUrls: ['./employee-new.component.css']
 })
 export class EmployeeNewComponent {
+
+  EMPLOYEE_ROLE_TYPES = EMPLOYEE_ROLE_TYPES;
+
 
   constructor(private employeeService: EmployeeService,
               private location: Location) {

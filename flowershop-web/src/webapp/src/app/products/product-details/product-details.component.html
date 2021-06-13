@@ -10,8 +10,12 @@
     <input [(ngModel)] = "product.description" placeholder="Description"/>
   </div>
   <div>
-    <label>Color:</label>{{product.color}}
-    <input [(ngModel)] = "product.color" placeholder="Color"/>
+    <label>Color:</label>
+    <select [(ngModel)] = "product.color">
+      <option *ngFor="let option of PRODUCT_COLOR_TYPES" value="{{option}}">
+        {{option}}
+      </option>
+    </select>
   </div>
   <div>
     <label>Price:</label>{{product.price}}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../shared/product.service";
 import {Location} from '@angular/common';
+import { PRODUCT_COLOR_TYPES } from '../shared/product.model';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +11,10 @@ import {Location} from '@angular/common';
 })
 export class ProductNewComponent {
 
-  constructor(private productService: ProductService,
+  PRODUCT_COLOR_TYPES =   PRODUCT_COLOR_TYPES;
+
+
+    constructor(private productService: ProductService,
               private location: Location) { }
 
   goBack(): void {

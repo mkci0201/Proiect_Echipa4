@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Product} from "../shared/product.model";
+import {Product, PRODUCT_COLOR_TYPES} from "../shared/product.model";
 import {ProductService} from "../shared/product.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {switchMap} from "rxjs/operators";
@@ -13,6 +13,7 @@ import {Location} from '@angular/common';
 export class ProductDetailsComponent implements OnInit {
 
   @Input() product: Product;
+  PRODUCT_COLOR_TYPES =   PRODUCT_COLOR_TYPES;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,

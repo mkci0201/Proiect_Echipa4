@@ -14,10 +14,16 @@
     <label>Phone number:</label>{{employee.phoneNumber}}
     <input [(ngModel)] = "employee.phoneNumber" placeholder="PhoneNumber"/>
   </div>
+
   <div>
-    <label>Role:</label>{{employee.role}}
-    <input [(ngModel)] = "employee.role" placeholder="Role"/>
+    <label>Role:</label>
+    <select [(ngModel)] = "employee.role">
+      <option *ngFor="let option of EMPLOYEE_ROLE_TYPES" value="{{option}}">
+        {{option}}
+      </option>
+    </select>
   </div>
+
   <div>
     <label>Username:</label>{{employee.username}}
     <input [(ngModel)] = "employee.username" placeholder="Username"/>

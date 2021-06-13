@@ -17,7 +17,11 @@
 
 <div>
   <label>Role:</label>
-  <input #employeeRole/>
+  <select   #employeeRole>
+    <option *ngFor="let option of EMPLOYEE_ROLE_TYPES" value="{{option}}">
+      {{option}}
+    </option>
+  </select>
 </div>
 <div>
   <label>Date of Birth dd/mm/yyyy:</label>

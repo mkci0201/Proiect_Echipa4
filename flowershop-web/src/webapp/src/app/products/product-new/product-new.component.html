@@ -9,10 +9,13 @@
   <label>Description:</label>
   <input #productDescription/>
 </div>
-
 <div>
   <label>Color:</label>
-  <input #productColor/>
+  <select   #productColor>
+    <option *ngFor="let option of PRODUCT_COLOR_TYPES" value="{{option}}">
+      {{option}}
+    </option>
+  </select>
 </div>
 
 <div>
