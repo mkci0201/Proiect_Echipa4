@@ -1,0 +1,38 @@
+<div class="container">
+  <form>
+    <div class = "row">
+      <div class="col-8 offset-2 card">
+        <legend>Place New Order</legend>
+        <div class="mb-3">
+          <label for="ordershopDate" class="form-label">Current Date</label>
+          <input type="date" class="form-control" id="ordershopDate" placeholder=dd/mm/yyyy" #orderShopDate/>
+        </div>
+        <div class="mb-3">
+          <label for="ordershopCategory" class="form-label">Category:</label>
+          <select class="form-select" #ordershopCategory id="ordershopCategory" >
+            <option *ngFor="let option of CATEGORY_TYPES" value="{{option}}">
+              {{option}}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label">Ordered Product:</label>
+          ToDO:
+        </div>
+        <div class="mb-3">
+          <label for="orderedProduct" class="form-label">Products:</label>
+          <select class="form-select" #orderedProduct id="orderedProduct" >
+            <option *ngFor="let option of products" value="{{option.name}}">
+              {{option.name}}
+            </option>
+          </select>
+          <button class="btn btn-light" (click)="addProduct(orderedProduct.value)">Add Product</button>
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+          <button class="btn btn-light" (click)="goBack()">Back</button>
+          <button class="btn btn-primary" (click)="addOrder(orderShopDate.value, ordershopCategory.value)">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

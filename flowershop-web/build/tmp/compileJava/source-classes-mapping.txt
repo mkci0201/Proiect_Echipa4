@@ -21,13 +21,15 @@ ro/ubb/flowershop/web/config/WebConfig.java
  ro.ubb.flowershop.web.config.WebConfig$1
 ro/ubb/flowershop/web/converter/OrderedProductsConverter.java
  ro.ubb.flowershop.web.converter.OrderedProductsConverter
+ro/ubb/flowershop/web/config/BasicAuthConfiguration.java
+ ro.ubb.flowershop.web.config.BasicAuthConfiguration
 ro/ubb/flowershop/web/converter/EmployeeConverter.java
  ro.ubb.flowershop.web.converter.EmployeeConverter
-ro/ubb/flowershop/web/controller/OrderedProductsController.java
- ro.ubb.flowershop.web.controller.OrderedProductsController
+ro/ubb/flowershop/web/converter/Converter.java
+ ro.ubb.flowershop.web.converter.Converter
 ro/ubb/flowershop/web/converter/ProductConverter.java
  ro.ubb.flowershop.web.converter.ProductConverter
 ro/ubb/flowershop/web/dto/EmployeeDto.java
  ro.ubb.flowershop.web.dto.EmployeeDto
-ro/ubb/flowershop/web/converter/Converter.java
- ro.ubb.flowershop.web.converter.Converter
+ro/ubb/flowershop/web/controller/OrderedProductsController.java
+ ro.ubb.flowershop.web.controller.OrderedProductsController

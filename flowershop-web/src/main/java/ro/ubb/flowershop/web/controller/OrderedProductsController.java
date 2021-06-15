@@ -21,7 +21,7 @@ public class OrderedProductsController {
     @Autowired
     private OrderedProductsConverter orderedProductsConverter;
 
-    @RequestMapping(value = "api/orders/", method = RequestMethod.POST)
+    @RequestMapping(value = "api/orderedProducts/", method = RequestMethod.POST)
     public OrderedProductDto addOrderedProducts(@RequestBody OrderedProductDto dto) {
 
         OrderedProduct newOrderedProducts = orderedProductsService.addOrderedProducts(
@@ -31,13 +31,13 @@ public class OrderedProductsController {
         return orderedProductsConverter.convertModelToDto(newOrderedProducts);
     }
 
-    @RequestMapping(value = "api/orders/{orderedProductsId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/orderedProducts/{orderedProductsId}", method = RequestMethod.PUT)
     public OrderedProductDto updateOrderedProducts(@PathVariable int orderedProductsId, @RequestBody OrderedProductDto dto) {
         return orderedProductsConverter.convertModelToDto(orderedProductsService.updateOrderedProducts(orderedProductsId,
                 orderedProductsConverter.convertDtoToModel(dto)));
     }
 
-    @RequestMapping(value = "api/orders/{orderedProductsId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/orderedProducts/{orderedProductsId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteOrderedProducts(@PathVariable int orderedProductsId) {
         orderedProductsService.delete(orderedProductsId);
 
@@ -47,7 +47,7 @@ public class OrderedProductsController {
             return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "api/orders/{orderedProductsId}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/orderedProducts/{orderedProductsId}", method = RequestMethod.GET)
     public OrderedProductDto findOne(@PathVariable int orderedProductsId) {
 
         OrderedProduct orderedProducts = orderedProductsService.findOne(orderedProductsId);
@@ -55,7 +55,7 @@ public class OrderedProductsController {
         return orderedProductsConverter.convertModelToDto(orderedProducts);
     }
 
-    @RequestMapping(value = "api/orders", method = RequestMethod.GET)
+    @RequestMapping(value = "api/orderedProducts", method = RequestMethod.GET)
     public List<OrderedProductDto> getAllOrderedProducts() {
         List<OrderedProduct> orderedProducts = orderedProductsService.getAllOrderedProducts();
 

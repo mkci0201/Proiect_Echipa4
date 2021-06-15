@@ -22,6 +22,10 @@ import { OrderedProductListComponent } from './orderedproducts/orderedproduct-li
 import { OrderedProductDetailsComponent } from './orderedproducts/orderedproduct-details/orderedproduct-details.component';
 import {OrderedProductService} from "./orderedproducts/shared/ordered-product.service";
 import { HeaderComponent } from './header/header.component';
+import { ShoporderComponent } from './shoporder/shoporder.component';
+import { ShoporderDetailsComponent } from './shoporder/shoporder-details/shoporder-details.component';
+import { ShoporderNewComponent } from './shoporder/shoporder-new/shoporder-new.component';
+import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { HeaderComponent } from './header/header.component';
     OrderedProductNewComponent,
     OrderedProductListComponent,
     OrderedProductDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ShoporderComponent,
+    ShoporderDetailsComponent,
+    ShoporderNewComponent,
+    ShoporderListComponent
   ],
   imports: [
     BrowserModule,
