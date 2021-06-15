@@ -1,18 +1,27 @@
 package ro.ubb.flowershop.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ro.ubb.flowershop.core.model.OrderedProduct;
+import ro.ubb.flowershop.core.service.OrderedProductsService;
+import ro.ubb.flowershop.web.converter.OrderedProductsConverter;
+import ro.ubb.flowershop.web.dto.OrderedProductDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
 public class OrderedProductsController {
 
-    /*@Autowired
+    @Autowired
     private OrderedProductsService orderedProductsService;
 
     @Autowired
     private OrderedProductsConverter orderedProductsConverter;
 
-    @RequestMapping(value = "/orderedproducts/", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/orders/", method = RequestMethod.POST)
     public OrderedProductDto addOrderedProducts(@RequestBody OrderedProductDto dto) {
 
         OrderedProduct newOrderedProducts = orderedProductsService.addOrderedProducts(
@@ -22,13 +31,13 @@ public class OrderedProductsController {
         return orderedProductsConverter.convertModelToDto(newOrderedProducts);
     }
 
-    @RequestMapping(value = "/orderedproducts/{orderedProductsId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/orders/{orderedProductsId}", method = RequestMethod.PUT)
     public OrderedProductDto updateOrderedProducts(@PathVariable int orderedProductsId, @RequestBody OrderedProductDto dto) {
         return orderedProductsConverter.convertModelToDto(orderedProductsService.updateOrderedProducts(orderedProductsId,
                 orderedProductsConverter.convertDtoToModel(dto)));
     }
 
-    @RequestMapping(value = "/orderedproducts/{orderedProductsId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/orders/{orderedProductsId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteOrderedProducts(@PathVariable int orderedProductsId) {
         orderedProductsService.delete(orderedProductsId);
 
@@ -38,7 +47,7 @@ public class OrderedProductsController {
             return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/orderedproducts/{orderedProductsId}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/orders/{orderedProductsId}", method = RequestMethod.GET)
     public OrderedProductDto findOne(@PathVariable int orderedProductsId) {
 
         OrderedProduct orderedProducts = orderedProductsService.findOne(orderedProductsId);
@@ -46,10 +55,10 @@ public class OrderedProductsController {
         return orderedProductsConverter.convertModelToDto(orderedProducts);
     }
 
-    @RequestMapping(value = "/orderedproducts", method = RequestMethod.GET)
+    @RequestMapping(value = "api/orders", method = RequestMethod.GET)
     public List<OrderedProductDto> getAllOrderedProducts() {
         List<OrderedProduct> orderedProducts = orderedProductsService.getAllOrderedProducts();
 
         return new ArrayList<>(orderedProductsConverter.convertModelsToDtos(orderedProducts));
-    }*/
+    }
 }

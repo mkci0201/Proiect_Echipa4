@@ -1,0 +1,16 @@
+<h3>Add Ordered Product</h3>
+
+<div>
+  <label>Product:</label>
+  <input #product/>
+</div>
+
+<div>
+  <label>Quantity:</label>
+  <input #quantity/>
+</div>
+
+<div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="addOrderedProduct(product.value, quantity.value)">Save</button>
+</div>

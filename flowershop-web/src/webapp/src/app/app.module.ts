@@ -16,6 +16,11 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductNewComponent } from './products/product-new/product-new.component';
 import {ProductService} from "./products/shared/product.service";
+import { OrderedProductsComponent } from './orderedproducts/orderedproducts.component';
+import { OrderedProductNewComponent } from './orderedproducts/orderedproduct-new/orderedproduct-new.component';
+import { OrderedProductListComponent } from './orderedproducts/orderedproduct-list/orderedproduct-list.component';
+import { OrderedProductDetailsComponent } from './orderedproducts/orderedproduct-details/orderedproduct-details.component';
+import {OrderedProductService} from "./orderedproducts/shared/ordered-product.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import {ProductService} from "./products/shared/product.service";
     ProductsComponent,
     ProductDetailsComponent,
     ProductListComponent,
-    ProductNewComponent
+    ProductNewComponent,
+    OrderedProductsComponent,
+    OrderedProductNewComponent,
+    OrderedProductListComponent,
+    OrderedProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,7 @@ import {ProductService} from "./products/shared/product.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [EmployeeService, ProductService],
+  providers: [EmployeeService, ProductService, OrderedProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
