@@ -1,33 +1,44 @@
-<div *ngIf="employee">
-  <h2> {{employee.firstName}} {{employee.lastName}} details:</h2>
-  <div>
-    <label>Full Name:</label>{{employee.firstName}} {{employee.lastName}}
-    <input [(ngModel)] = "employee.firstName" placeholder="FirstName"/>
-    <input [(ngModel)] = "employee.lastName" placeholder="LastName"/>
+<div *ngIf="employee" class="container">
+  <form class="">
+    <div class="row">
+      <div class="col-8 offset-2 card">
+        <legend>{{employee.firstName}} {{employee.lastName}} details:</legend>
 
-  </div>
-  <div>
-    <label>Date of Birth:</label>{{employee.dateOfBirth}}
-    <input [(ngModel)] = "employee.dateOfBirth" placeholder="DateOfBirth"/>
-  </div>
-  <div>
-    <label>Phone number:</label>{{employee.phoneNumber}}
-    <input [(ngModel)] = "employee.phoneNumber" placeholder="PhoneNumber"/>
-  </div>
+        <div class="mb-3">
+          <label class="form-label">Full Name: </label>{{employee.firstName}} {{employee.lastName}}
+          <input class="form-control" type="text" [(ngModel)] = "employee.firstName" placeholder="FirstName"/>
+          <input class="form-control" type="text" [(ngModel)] = "employee.lastName" placeholder="LastName"/>
+        </div>
 
-  <div>
-    <label>Role:</label>
-    <select [(ngModel)] = "employee.role">
-      <option *ngFor="let option of EMPLOYEE_ROLE_TYPES" value="{{option}}">
-        {{option}}
-      </option>
-    </select>
-  </div>
+        <div class="mb-3">
+          <label class="form-label">Date of Birth: </label>{{employee.dateOfBirth}}
+          <input class="form-control" type="date" [(ngModel)] = "employee.dateOfBirth" placeholder="DateOfBirth"/>
+        </div>
 
-  <div>
-    <label>Username:</label>{{employee.username}}
-    <input [(ngModel)] = "employee.username" placeholder="Username"/>
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+        <div class="mb-3">
+          <label class="form-label">Phone number:</label>{{employee.phoneNumber}}
+          <input class="form-control" type="text" [(ngModel)] = "employee.phoneNumber" placeholder="PhoneNumber"/>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Role:</label>
+          <select class="form-select" [(ngModel)] = "employee.role">
+            <option *ngFor="let option of EMPLOYEE_ROLE_TYPES" value="{{option}}">
+              {{option}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Username:</label>{{employee.username}}
+          <input class="form-control" type="text" [(ngModel)] = "employee.username" placeholder="Username"/>
+        </div>
+
+        <div class="mb-3 d-flex justify-content-between">
+          <button (click)="goBack()">Back</button>
+          <button (click)="save()">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

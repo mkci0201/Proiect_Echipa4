@@ -1,12 +1,24 @@
 <div *ngIf="selectedOrderedProduct">
   <h2>{{ selectedOrderedProduct.id }} was selected</h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button class="btn btn-primary" (click)="gotoDetail()">View Details</button>
 </div>
 
-<h2>Ordered products</h2>
-<ol>
-  <li *ngFor="let op of orderedProducts" [class.selected]="op === selectedOrderedProduct" (click)="onSelect(op)">
-    {{op.id}}
-    <button (click)="deleteOrderedProduct(op); $event.stopPropagation()">Delete</button>
-  </li>
-</ol>
+<h2>Orders</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Product</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let op of orderedProducts" [class.selected]="op === selectedOrderedProduct" (click)="onSelect(op)">
+      <td>{{op.id}}</td>
+      <td>{{op.product}}</td>
+      <td>{{op.quantity}}</td>
+      <td><button class="btn btn-link" (click)="deleteOrderedProduct(op); $event.stopPropagation()">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

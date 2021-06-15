@@ -1,35 +1,47 @@
-<h3>Add Product</h3>
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-8 offset-2 card">
+        <legend>Add Product</legend>
+        <div class="mb-3">
+          <label for="productName" class="form-label">Name:</label>
+          <input class="form-control" id="productName" name="productName" type="text" #productName/>
+        </div>
 
-<div>
-  <label>Name:</label>
-  <input #productName/>
-</div>
+        <div class="mb-3">
+          <label for="productDescription" class="form-label">Description:</label>
+          <textarea class="form-control" id="productDescription" name="productDescription" #productDescription></textarea>
+        </div>
 
-<div>
-  <label>Description:</label>
-  <input #productDescription/>
-</div>
-<div>
-  <label>Color:</label>
-  <select   #productColor>
-    <option *ngFor="let option of PRODUCT_COLOR_TYPES" value="{{option}}">
-      {{option}}
-    </option>
-  </select>
-</div>
+        <div class="mb-3">
+          <label for="productColor" class="form-label">Color:</label>
+          <select class="form-select" id="productColor" name="productColor" #productColor>
+            <option *ngFor="let option of PRODUCT_COLOR_TYPES" value="{{option}}">
+              {{option}}
+            </option>
+          </select>
+        </div>
 
-<div>
-  <label>Price:</label>
-  <input #productPrice/>
-</div>
+        <div class="mb-3">
+          <label for="productPrice" class="form-label">Price:</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="productPrice" name="productPrice" #productPrice>
+            <span class="input-group-text" id="basic-addon2">lei</span>
+          </div>
+        </div>
 
-<div>
-  <label>Stock:</label>
-  <input #productStock/>
-</div>
+        <div class="mb-3">
+          <label for="productStock" class="form-label">Stock:</label>
+          <input type="number" class="form-control" id="productStock" name="productStock" #productStock/>
+        </div>
 
-<div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="addProduct(productName.value, productDescription.value, productColor.value,
+        <div class="mb-3 d-flex justify-content-between">
+          <button class="btn btn-light" (click)="goBack()">Back</button>
+          <button class="btn btn-primary" (click)="addProduct(productName.value, productDescription.value, productColor.value,
   productPrice.value, productStock.value)">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
+

@@ -1,0 +1,25 @@
+{
+  "name": "Proiect_Echipa4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^9.1.2",
+    "bootstrap": "^4.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkci0201/Proiect_Echipa4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkci0201/Proiect_Echipa4/issues"
+  },
+  "homepage": "https://github.com/mkci0201/Proiect_Echipa4#readme"
+}

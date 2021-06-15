@@ -1,14 +1,27 @@
-<div *ngIf="orderedProduct">
-  <h2>{{orderedProduct.id}} details</h2>
+<div *ngIf="orderedProduct" class="container">
 
-  <div class="">
-    <label for="orderedProductProduct">Product</label>
-    <input type="text" id="orderedProductProduct" [(ngModel)]="orderedProduct.product" name="orderedProductProduct">
-  </div>
-  <div class="">
-    <label for="orderedProductQuantity">Product</label>
-    <input type="text" id="orderedProductQuantity" [(ngModel)]="orderedProduct.quantity" name="orderedProductQuantity">
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+  <form class="">
+    <div class="row">
+      <div class="col-8 offset-2 card">
+        <legend>{{orderedProduct.id}} details</legend>
+        <div class="mb-3">
+          <label class="form-label" for="orderedProductProduct">Product</label>
+<!--          <input type="text" id="orderedProductProduct" [(ngModel)]="orderedProduct.product" name="orderedProductProduct">-->
+          <select class="form-select"  [(ngModel)]="orderedProduct.product" id="orderedProductProduct" >
+            <option>Flower 1</option>
+            <option>Flower 2</option>
+            <option>Flower 3</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label"  for="orderedProductQuantity">Product</label>
+          <input class="form-control" type="text" id="orderedProductQuantity" [(ngModel)]="orderedProduct.quantity" name="orderedProductQuantity">
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+          <button class="btn btn-light" (click)="goBack()">Back</button>
+          <button class="btn btn-primary" (click)="save()">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

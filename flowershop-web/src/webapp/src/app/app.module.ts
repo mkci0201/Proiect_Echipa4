@@ -21,6 +21,7 @@ import { OrderedProductNewComponent } from './orderedproducts/orderedproduct-new
 import { OrderedProductListComponent } from './orderedproducts/orderedproduct-list/orderedproduct-list.component';
 import { OrderedProductDetailsComponent } from './orderedproducts/orderedproduct-details/orderedproduct-details.component';
 import {OrderedProductService} from "./orderedproducts/shared/ordered-product.service";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {OrderedProductService} from "./orderedproducts/shared/ordered-product.se
     OrderedProductsComponent,
     OrderedProductNewComponent,
     OrderedProductListComponent,
-    OrderedProductDetailsComponent
+    OrderedProductDetailsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

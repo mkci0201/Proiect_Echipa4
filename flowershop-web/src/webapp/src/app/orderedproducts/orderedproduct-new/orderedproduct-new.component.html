@@ -1,16 +1,28 @@
-<h3>Add Ordered Product</h3>
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-8 offset-2 card">
+        <legend>Create an order</legend>
 
-<div>
-  <label>Product:</label>
-  <input #product/>
-</div>
+        <div class="mb-3">
+          <label for="product" >Product:</label>
+<!--          <input id="product" #product/>-->
+          <select class="form-select" #product id="product" >
+            <option>Flower 1</option>
+            <option>Flower 2</option>
+            <option>Flower 3</option>
+          </select>
+        </div>
 
-<div>
-  <label>Quantity:</label>
-  <input #quantity/>
-</div>
-
-<div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="addOrderedProduct(product.value, quantity.value)">Save</button>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity:</label>
+          <input id="quantity" name="quantity" class="form-control" #quantity/>
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+          <button class="btn btn-light" (click)="goBack()">Back</button>
+          <button class="btn btn-primary" (click)="addOrderedProduct(product.value, quantity.value)">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
