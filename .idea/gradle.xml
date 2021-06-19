@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/flowershop-core" />
             <option value="$PROJECT_DIR$/flowershop-main" />
             <option value="$PROJECT_DIR$/flowershop-web" />
-            <option value="$PROJECT_DIR$/ro.ubb.flowershop-main" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,6 +1,5 @@
 rootProject.name = 'FlowerShop'
 include 'flowershop-core'
-include 'ro.ubb.flowershop-main'
 include 'flowershop-main'
 include 'flowershop-web'
 

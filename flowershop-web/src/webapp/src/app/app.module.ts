@@ -26,8 +26,6 @@ import { ShoporderComponent } from './shoporder/shoporder.component';
 import { ShoporderDetailsComponent } from './shoporder/shoporder-details/shoporder-details.component';
 import { ShoporderNewComponent } from './shoporder/shoporder-new/shoporder-new.component';
 import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-list.component';
-import { LoginComponent } from './login/login.component';
-import {HttpInterceptorService} from "./login/shared/http-interceptor.service";
 import {ShopOrderService} from "./shoporder/shared/shoporder.service";
 
 @NgModule({
@@ -50,7 +48,6 @@ import {ShopOrderService} from "./shoporder/shared/shoporder.service";
     ShoporderDetailsComponent,
     ShoporderNewComponent,
     ShoporderListComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,11 +58,7 @@ import {ShopOrderService} from "./shoporder/shared/shoporder.service";
     ReactiveFormsModule
   ],
   providers: [EmployeeService, ProductService, OrderedProductService, ShopOrderService,
-    {
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpInterceptorService,
-    multi: true
-  }],
+    ],
 
   bootstrap: [AppComponent]
 })
