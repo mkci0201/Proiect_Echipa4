@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.ubb.flowershop.core.model.Employee;
 import ro.ubb.flowershop.core.model.EmployeeRole;
+import ro.ubb.flowershop.core.model.ShopOrder;
 import ro.ubb.flowershop.core.repository.EmployeeRepository;
 
+import javax.persistence.criteria.SetJoin;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,5 +63,15 @@ public class EmployeeServiceImplementation implements EmployeeService {
     public List<Employee> getAllEmployees() {
 
         return employeeRepository.findAll();
+    }
+
+  /*  @Override
+    public SetJoin<Employee, ShopOrder> findAllShopOrdersPerEmployee(){
+        return employeeRepository.findAllShopOrdersPerEmployee();
+    }*/
+
+    @Override
+    public List<Employee> findAllByRole(EmployeeRole role){
+        return employeeRepository.findAllByRole(role);
     }
 }

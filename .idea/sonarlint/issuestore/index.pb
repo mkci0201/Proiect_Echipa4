@@ -61,3 +61,5 @@ L
 flowershop-core/build.gradle,a\2\a26c25aec05b7214686cd474b8619f801188660d
 „
 Tflowershop-web/src/webapp/src/app/employees/employee-list/employee-list.component.ts,9\a\9ace784eaae60fcd1312162f67d3876a052ba814
+w
+Gflowershop-web/src/webapp/src/app/shoporder/shared/shoporder.service.ts,d\e\dedc122d2354cab3eb65caa21a54701cc3e2e733

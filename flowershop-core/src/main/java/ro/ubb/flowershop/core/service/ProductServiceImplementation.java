@@ -1,13 +1,18 @@
 package ro.ubb.flowershop.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import ro.ubb.flowershop.core.model.Product;
+import ro.ubb.flowershop.core.model.ProductColor;
 import ro.ubb.flowershop.core.repository.ProductRepository;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class ProductServiceImplementation implements ProductService{
@@ -57,5 +62,22 @@ public class ProductServiceImplementation implements ProductService{
     public List<Product> getAllProducts() {
 
         return productRepository.findAll();
+    }
+
+    @Override
+    public List<Product> getAllAvailableProductsPerColor(ProductColor color){
+        return productRepository.findProductByColor(color)
+                                .stream()
+                                .filter(product -> product.getStock() >= 0)
+                                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Product> getAllAvailableProducts() {
+
+                return productRepository.findAll()
+                                 .stream()
+                                 .filter(product -> product.getStock() > 0)
+                                 .collect(Collectors.toList());
     }
 }

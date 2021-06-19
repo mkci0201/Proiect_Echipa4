@@ -18,7 +18,7 @@ public class ShopOrder extends BaseEntity<Integer>{
     private Category category;
 
     @OneToMany
-    private Set<OrderedProduct> orderedProducts = new HashSet<>();
+    private Set<OrderedProduct> orderedProducts;
 
 
 }

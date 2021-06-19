@@ -15,8 +15,8 @@ public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter{
             throws Exception {
             auth.inMemoryAuthentication()
                 .withUser("user")
-                .password("password")
-                .roles("Administrator");
+                .password("{noop}password")
+                .roles("Administrator", "User" );
     }
 
     @Override
@@ -29,6 +29,7 @@ public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter{
                 .authenticated()
                 .and()
                 .httpBasic();
+        http.cors();
     }
 
 }

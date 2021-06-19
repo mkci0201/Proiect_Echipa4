@@ -12,8 +12,8 @@ export class Employee {
 
 export enum EmployeeRole{
   Administrator,
-  Employee,
+  User,
   Leaver,
 }
 
-export const EMPLOYEE_ROLE_TYPES = ['Administrator', 'Employee', 'Leaver'];
+export const EMPLOYEE_ROLE_TYPES = ['Administrator', 'User', 'Leaver'];

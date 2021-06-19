@@ -4,6 +4,6 @@ package ro.ubb.flowershop.core.model;
 
 public enum EmployeeRole {
     Administrator,
-    Employee,
+    User,
     Leaver,
 }

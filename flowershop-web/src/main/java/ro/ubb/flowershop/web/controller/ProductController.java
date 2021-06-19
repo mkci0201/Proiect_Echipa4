@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.ubb.flowershop.core.model.Employee;
 import ro.ubb.flowershop.core.model.Product;
+import ro.ubb.flowershop.core.model.ProductColor;
 import ro.ubb.flowershop.core.service.ProductService;
 import ro.ubb.flowershop.web.converter.ProductConverter;
 import ro.ubb.flowershop.web.dto.EmployeeDto;
@@ -63,6 +64,22 @@ public class ProductController {
     public List<ProductDto> getAllProducts() {
 
         List<Product> products = productService.getAllProducts();
+
+        return new ArrayList<>(productConverter.convertModelsToDtos(products));
+    }
+
+    @RequestMapping(value = "api/productsByColor/{color}", method = RequestMethod.GET)
+    public List<ProductDto> getAllAvailableProductsPerColor(@PathVariable ProductColor color){
+
+        List<Product> products = productService.getAllAvailableProductsPerColor(color);
+
+        return new ArrayList<>(productConverter.convertModelsToDtos(products));
+    }
+
+    @RequestMapping(value = "api/availableProducts", method = RequestMethod.GET)
+    public List<ProductDto> getAllAvailableProducts(){
+
+        List<Product> products = productService.getAllAvailableProducts();
 
         return new ArrayList<>(productConverter.convertModelsToDtos(products));
     }

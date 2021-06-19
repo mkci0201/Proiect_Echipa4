@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
@@ -26,6 +26,9 @@ import { ShoporderComponent } from './shoporder/shoporder.component';
 import { ShoporderDetailsComponent } from './shoporder/shoporder-details/shoporder-details.component';
 import { ShoporderNewComponent } from './shoporder/shoporder-new/shoporder-new.component';
 import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-list.component';
+import { LoginComponent } from './login/login.component';
+import {HttpInterceptorService} from "./login/shared/http-interceptor.service";
+import {ShopOrderService} from "./shoporder/shared/shoporder.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-lis
     ShoporderComponent,
     ShoporderDetailsComponent,
     ShoporderNewComponent,
-    ShoporderListComponent
+    ShoporderListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,13 @@ import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-lis
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [EmployeeService, ProductService, OrderedProductService],
+  providers: [EmployeeService, ProductService, OrderedProductService, ShopOrderService,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true
+  }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {

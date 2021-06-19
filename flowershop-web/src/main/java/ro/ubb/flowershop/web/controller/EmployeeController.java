@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import ro.ubb.flowershop.core.model.Employee;
+import ro.ubb.flowershop.core.model.EmployeeRole;
 import ro.ubb.flowershop.core.service.EmployeeService;
 
 import ro.ubb.flowershop.web.converter.EmployeeConverter;
 import ro.ubb.flowershop.web.dto.EmployeeDto;
+import ro.ubb.flowershop.web.dto.ShopOrderDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,4 +68,19 @@ public class EmployeeController {
 
         return new ArrayList<>(employeeConverter.convertModelsToDtos(employees));
     }
+    @RequestMapping(value = "api/employeesRole/{role}", method = RequestMethod.GET)
+    public List<EmployeeDto>findAllByRole(@PathVariable EmployeeRole role){
+
+        List<Employee> employees = employeeService.findAllByRole(role);
+        return new ArrayList<>(employeeConverter.convertModelsToDtos(employees));
+
+    }
+
+ /*   @RequestMapping(value = "api/employeesWithShoporder", method = RequestMethod.GET)
+    public SetJoin<EmployeeDto, ShopOrderDto>findAllShopOrdersPerEmployee(){
+
+        List<Employee> employees = employeeService.findAllShopOrdersPerEmployee();
+        return new <>(employeeConverter.convertModelsToDtos(employees));
+
+    }*/
 }
