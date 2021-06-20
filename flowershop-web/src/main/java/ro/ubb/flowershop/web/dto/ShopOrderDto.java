@@ -14,6 +14,7 @@ public class ShopOrderDto extends BaseDto{
     private String date;
     private Category category;
     private Set<OrderedProductDto> orderedProducts;
+    private EmployeeDto employee;
 
     @Override
     public String toString() {
@@ -21,6 +22,7 @@ public class ShopOrderDto extends BaseDto{
                 " date='" + date + '\'' +
                 ", category=" + category +
                 ", orderedProducts=" + orderedProducts +
+                ", employee=" + employee +
                 '}' + super.toString();
     }
 }

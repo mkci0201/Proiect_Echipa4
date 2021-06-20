@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {Category, ShopOrder} from "./shoporder.model";
 import {OrderedProduct} from "../../orderedproducts/shared/orderedproduct.model";
+import {Employee} from "../../employees/shared/employee.model";
 
 @Injectable()
 export class ShopOrderService {
@@ -13,9 +14,9 @@ export class ShopOrderService {
 
   }
 
-  addOrder(date: string, category: Category, orderedProducts: Array<OrderedProduct>  ): Observable<ShopOrder>
+  addOrder(date: string, category: Category, orderedProducts: Array<OrderedProduct>, employee : Employee  ): Observable<ShopOrder>
   {
-    let shopOrder = {date, category, orderedProducts};
+    let shopOrder = {date, category, orderedProducts, employee};
     return this.httpClient.post<ShopOrder>(this.shopOrdersUrl, shopOrder)
   }
 

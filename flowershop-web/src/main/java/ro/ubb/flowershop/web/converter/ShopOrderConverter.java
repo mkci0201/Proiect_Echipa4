@@ -35,7 +35,8 @@ public class ShopOrderConverter extends BaseConverter<ShopOrder, ShopOrderDto>{
         ShopOrder order =
                 new ShopOrder(dto.getDate(),
                               dto.getCategory(),
-                              orderedProductsList);
+                              orderedProductsList,
+                               employeeDtoConverter.convertDtoToModel(dto.getEmployee()));
         order.setId(dto.getId());
         return order;
     }
@@ -55,7 +56,8 @@ public class ShopOrderConverter extends BaseConverter<ShopOrder, ShopOrderDto>{
         ShopOrderDto shopOrderDto =
                 new ShopOrderDto(order.getDate(),
                                  order.getCategory(),
-                                 orderedProductDtos);
+                                 orderedProductDtos,
+                                 employeeDtoConverter.convertModelToDto(order.getEmployee()));
         shopOrderDto.setId(order.getId());
         return shopOrderDto;
     }

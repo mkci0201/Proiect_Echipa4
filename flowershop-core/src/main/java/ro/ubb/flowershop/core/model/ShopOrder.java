@@ -20,6 +20,9 @@ public class ShopOrder extends BaseEntity<Integer>{
     @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<OrderedProduct> orderedProducts;
 
+    @ManyToOne
+    private Employee employee;
+
 
 
 }

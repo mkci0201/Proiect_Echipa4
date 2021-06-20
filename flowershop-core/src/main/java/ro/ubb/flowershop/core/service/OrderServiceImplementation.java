@@ -57,4 +57,10 @@ public class OrderServiceImplementation implements OrderService {
 
         return orderRepository.findAll();
     }
+
+    @Override
+    public List<ShopOrder> getShopOrdersPerEmployee(int employeeId){
+
+        return orderRepository.findShopOrdersByEmployee_Id(employeeId);
+    }
 }

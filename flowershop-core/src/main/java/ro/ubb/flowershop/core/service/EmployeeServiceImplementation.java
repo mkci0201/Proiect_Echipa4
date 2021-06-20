@@ -74,4 +74,6 @@ public class EmployeeServiceImplementation implements EmployeeService {
     public List<Employee> findAllByRole(EmployeeRole role){
         return employeeRepository.findAllByRole(role);
     }
+
 }
+

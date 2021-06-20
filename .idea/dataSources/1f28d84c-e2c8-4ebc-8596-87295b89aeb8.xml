@@ -789,7 +789,7 @@ false Zulu
     <database id="2" parent="1" name="FlowerShop">
       <ObjectId>24779</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1093</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1115</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="PersonDataBase">
@@ -878,7 +878,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1094</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1116</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="24" parent="2" name="heap">
@@ -977,7 +977,7 @@ false Zulu
     <table id="41" parent="23" name="shop_order">
       <ObjectId>25289</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1088</StateNumber>
+      <StateNumber>1111</StateNumber>
     </table>
     <table id="42" parent="23" name="shop_order_ordered_products">
       <ObjectId>25294</ObjectId>
@@ -1226,35 +1226,51 @@ shop_order_set_id</ColNames>
       <StateNumber>1082</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="78" parent="41" name="shop_order_pkey">
+    <column id="78" parent="41" name="employee_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1111</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="79" parent="41" name="shop_order_pkey">
       <ObjectId>25292</ObjectId>
       <StateNumber>1082</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="79" parent="41" name="shop_order_pkey">
+    <key id="80" parent="41" name="shop_order_pkey">
       <ObjectId>25293</ObjectId>
       <StateNumber>1082</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>shop_order_pkey</UnderlyingIndexName>
     </key>
-    <column id="80" parent="42" name="shop_order_id">
+    <foreign-key id="81" parent="41" name="fk263bbwbliauly8maca72hrvmp">
+      <ObjectId>25328</ObjectId>
+      <StateNumber>1112</StateNumber>
+      <ColNames>employee_id</ColNames>
+      <RefTableId>25095</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>employee</RefTableName>
+      <RefKeyName>employee_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="82" parent="42" name="shop_order_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1083</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="81" parent="42" name="ordered_products_id">
+    <column id="83" parent="42" name="ordered_products_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1083</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="82" parent="42" name="shop_order_ordered_products_pkey">
+    <index id="84" parent="42" name="shop_order_ordered_products_pkey">
       <ObjectId>25297</ObjectId>
       <StateNumber>1083</StateNumber>
       <ColNames>shop_order_id
@@ -1262,13 +1278,13 @@ ordered_products_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="83" parent="42" name="uk_dwv09qa9f5nnm1vx49ey4xi3x">
+    <index id="85" parent="42" name="uk_dwv09qa9f5nnm1vx49ey4xi3x">
       <ObjectId>25301</ObjectId>
       <StateNumber>1087</StateNumber>
       <ColNames>ordered_products_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="84" parent="42" name="shop_order_ordered_products_pkey">
+    <key id="86" parent="42" name="shop_order_ordered_products_pkey">
       <ObjectId>25298</ObjectId>
       <StateNumber>1083</StateNumber>
       <ColNames>shop_order_id
@@ -1276,13 +1292,13 @@ ordered_products_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>shop_order_ordered_products_pkey</UnderlyingIndexName>
     </key>
-    <key id="85" parent="42" name="uk_dwv09qa9f5nnm1vx49ey4xi3x">
+    <key id="87" parent="42" name="uk_dwv09qa9f5nnm1vx49ey4xi3x">
       <ObjectId>25302</ObjectId>
       <StateNumber>1087</StateNumber>
       <ColNames>ordered_products_id</ColNames>
       <UnderlyingIndexName>uk_dwv09qa9f5nnm1vx49ey4xi3x</UnderlyingIndexName>
     </key>
-    <foreign-key id="86" parent="42" name="fkecd0feptn4dtgh34wh6ptrqln">
+    <foreign-key id="88" parent="42" name="fkecd0feptn4dtgh34wh6ptrqln">
       <ObjectId>25323</ObjectId>
       <StateNumber>1092</StateNumber>
       <ColNames>shop_order_id</ColNames>
@@ -1292,7 +1308,7 @@ ordered_products_id</ColNames>
       <RefKeyName>shop_order_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="87" parent="42" name="fk1r80aynbo32vgf9y7b4t74g8w">
+    <foreign-key id="89" parent="42" name="fk1r80aynbo32vgf9y7b4t74g8w">
       <ObjectId>25318</ObjectId>
       <StateNumber>1091</StateNumber>
       <ColNames>ordered_products_id</ColNames>

@@ -11,5 +11,6 @@ public interface OrderService {
 
     ShopOrder findOne(int orderId);
     List<ShopOrder> getAllOrders();
+    List<ShopOrder> getShopOrdersPerEmployee(int employeeId);
 
 }
