@@ -5,10 +5,12 @@ import {map} from "rxjs/operators";
 import {Category, ShopOrder} from "./shoporder.model";
 import {OrderedProduct} from "../../orderedproducts/shared/orderedproduct.model";
 import {Employee} from "../../employees/shared/employee.model";
+import {BestEmployee} from "../../statistics/shared/bestemployee.model";
 
 @Injectable()
 export class ShopOrderService {
   private shopOrdersUrl = 'http://localhost:8080/api/shoporders';
+  private bestEmployee = 'http://localhost:8080/api/bestEmployee';
 
   constructor(private httpClient: HttpClient) {
 
@@ -38,6 +40,11 @@ export class ShopOrderService {
   getAllOrders() : Observable<ShopOrder[]>{
     return this.httpClient.get<Array<ShopOrder>>(this.shopOrdersUrl);
 
+  }
+
+  getEmployeeOfTheMonth(month:string) : Observable<BestEmployee> {
+    const url  = `${this.bestEmployee}/${month}`;
+    return this.httpClient.get<BestEmployee>(url);
   }
 
 }

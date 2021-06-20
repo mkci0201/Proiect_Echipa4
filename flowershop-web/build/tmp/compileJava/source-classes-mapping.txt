@@ -31,3 +31,5 @@ ro/ubb/flowershop/web/dto/EmployeeDto.java
  ro.ubb.flowershop.web.dto.EmployeeDto
 ro/ubb/flowershop/web/converter/Converter.java
  ro.ubb.flowershop.web.converter.Converter
+ro/ubb/flowershop/web/dto/BestEmployeeDto.java
+ ro.ubb.flowershop.web.dto.BestEmployeeDto

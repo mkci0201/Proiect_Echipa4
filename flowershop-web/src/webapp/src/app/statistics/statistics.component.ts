@@ -4,6 +4,9 @@ import {OrderedProductService} from "../orderedproducts/shared/ordered-product.s
 import {Router} from "@angular/router";
 import {StatisticsService} from "./shared/statistics.service";
 import {ShopOrder} from "../shoporder/shared/shoporder.model";
+import {ShopOrderService} from "../shoporder/shared/shoporder.service";
+import {Employee} from "../employees/shared/employee.model";
+import {BestEmployee} from "./shared/bestemployee.model";
 
 @Component({
   selector: 'app-statistics',
@@ -14,13 +17,18 @@ export class StatisticsComponent implements OnInit {
 
   errorMessage: string;
   orderedProducts: OrderedProduct[];
+  shopOrders : ShopOrder[];
 
+  bestEmployee : BestEmployee;
+  updatedDate : boolean = false;
 
-  constructor( private statisticService : StatisticsService, private router : Router) { }
+  constructor( private statisticService : StatisticsService, private shopOrderService:ShopOrderService,
+               private router : Router) { }
 
   ngOnInit(): void {
 
     this.getBestSellingProducts();
+    this.getAllShopOrders();
   }
 
   getBestSellingProducts() {
@@ -33,8 +41,19 @@ export class StatisticsComponent implements OnInit {
     )
   }
 
+  getAllShopOrders() {
+    this.shopOrderService.getAllOrders().subscribe(p => this.shopOrders = p);
+  }
+
   totalPricePerProduct(orderedProduct:OrderedProduct):number{
     return orderedProduct.quantity * orderedProduct.product.price;
   }
+
+  monthChanged(month:string) {
+    this.updatedDate = true;
+    this.shopOrderService.getEmployeeOfTheMonth(month).subscribe(e => this.bestEmployee = e);
+
+  }
+
 
 }

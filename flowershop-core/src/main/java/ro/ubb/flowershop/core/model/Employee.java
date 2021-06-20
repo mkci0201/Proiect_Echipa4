@@ -19,8 +19,8 @@ public class Employee extends BaseEntity<Integer>{
     private EmployeeRole role;
     private String dateOfBirth, phoneNumber, password;
 
-    @OneToMany
-    private Set<ShopOrder> shopOrderSet;
+    //@OneToMany
+    //private Set<ShopOrder> shopOrderSet;
 
 
 }
