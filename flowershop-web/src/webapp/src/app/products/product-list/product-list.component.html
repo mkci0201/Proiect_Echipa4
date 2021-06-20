@@ -18,17 +18,17 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products "
+    <tr *ngFor="let product of products; let i=index "
         [class.selected]="product === selectedProduct"
         (click)="onSelect(product)">
-      <td>{{product.id}}</td>
+      <td>{{i+1}}</td>
       <td>{{product.name}}</td>
       <td>{{product.color}}</td>
       <td>{{product.price}}</td>
       <td>{{product.stock}}</td>
       <td>
         <button class="btn btn-link delete"
-                (click)="delete(product); $event.stopPropagation()">x
+                (click)="delete(product); $event.stopPropagation()">delete
         </button>
       </td>
     </tr>

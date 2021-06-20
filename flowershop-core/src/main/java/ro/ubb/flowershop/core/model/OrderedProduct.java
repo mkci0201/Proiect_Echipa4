@@ -7,7 +7,8 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

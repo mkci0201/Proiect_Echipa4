@@ -7,6 +7,7 @@ import {Location} from '@angular/common';
 
 
 @Component({
+  moduleId:module.id,
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
   styleUrls: ['./employee-details.component.css']

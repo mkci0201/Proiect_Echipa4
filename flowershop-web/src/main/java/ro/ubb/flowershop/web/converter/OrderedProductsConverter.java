@@ -19,15 +19,17 @@ public class OrderedProductsConverter extends BaseConverter<OrderedProduct, Orde
     public OrderedProduct convertDtoToModel(OrderedProductDto dto) {
 
         OrderedProduct orderedProduct =
-                new OrderedProduct(productDtoConverter.convertDtoToModel(dto.getProduct()), dto.getQuantity());
-        dto.setId(dto.getId());
+                new OrderedProduct(productDtoConverter.convertDtoToModel(dto.getProduct()),
+                                   dto.getQuantity());
+        orderedProduct.setId(dto.getId());
         return orderedProduct;
     }
 
     @Override
     public OrderedProductDto convertModelToDto(OrderedProduct orderedProduct) {
-        OrderedProductDto orderedProductDto = new OrderedProductDto(productDtoConverter.convertModelToDto(orderedProduct.getProduct()),
-                orderedProduct.getQuantity());
+        OrderedProductDto orderedProductDto =
+                new OrderedProductDto(productDtoConverter.convertModelToDto(orderedProduct.getProduct()),
+                                      orderedProduct.getQuantity());
         orderedProductDto.setId(orderedProduct.getId());
         return orderedProductDto;
     }

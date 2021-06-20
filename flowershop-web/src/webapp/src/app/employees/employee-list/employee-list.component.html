@@ -19,11 +19,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of employees "
+      <tr *ngFor="let employee of employees; let i=index"
           [class.selected]="employee === selectedEmployee"
           (click)="onSelect(employee)">
-        <th scope="row">1</th>
-        <td>{{employee.id}}</td>
+        <th scope="row">{{i+1}}</th>
+        <!--<td>{{employee.id}}</td>-->
         <td>{{employee.username}}</td>
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>

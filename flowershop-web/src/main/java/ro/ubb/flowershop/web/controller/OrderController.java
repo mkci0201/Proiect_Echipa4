@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
 public class OrderController {
 
     @Autowired
@@ -23,7 +22,7 @@ public class OrderController {
     @Autowired
     private ShopOrderConverter orderConverter;
 
-    @RequestMapping(value = "/orders/", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/shoporders", method = RequestMethod.POST)
     public ShopOrderDto addOrder(@RequestBody ShopOrderDto dto) {
 
         ShopOrder newOrder = orderService.addOrder(
@@ -33,13 +32,13 @@ public class OrderController {
         return orderConverter.convertModelToDto(newOrder);
     }
 
-    @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "api/shoporders/{orderId}", method = RequestMethod.PUT)
     public ShopOrderDto updateOrder(@PathVariable int orderId, @RequestBody ShopOrderDto dto){
         return orderConverter.convertModelToDto(orderService
                 .updateOrder(orderId, orderConverter.convertDtoToModel(dto)));
     }
 
-    @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/shoporders/{orderId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteOrder(@PathVariable int orderId){
 
         orderService.deleteOrder(orderId);
@@ -50,7 +49,7 @@ public class OrderController {
             return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.GET)
+    @RequestMapping(value = "api/shoporders/{orderId}", method = RequestMethod.GET)
     public ShopOrderDto findOne(@PathVariable int orderId){
 
         ShopOrder order = orderService.findOne(orderId);
@@ -58,7 +57,7 @@ public class OrderController {
         return orderConverter.convertModelToDto(order);
     }
 
-    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    @RequestMapping(value = "api/shoporders", method = RequestMethod.GET)
     public List<ShopOrderDto> getAllOrders() {
 
         List<ShopOrder> orders = orderService.getAllOrders();

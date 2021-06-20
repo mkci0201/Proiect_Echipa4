@@ -6,23 +6,23 @@
 
         <div class="mb-3">
           <label class="form-label">Full Name: </label>{{employee.firstName}} {{employee.lastName}}
-          <input class="form-control" type="text" [(ngModel)] = "employee.firstName" placeholder="FirstName"/>
-          <input class="form-control" type="text" [(ngModel)] = "employee.lastName" placeholder="LastName"/>
+          <input class="form-control" type="text" [(ngModel)]="employee.firstName" name="FirstName"/>
+          <input class="form-control" type="text" [(ngModel)]="employee.lastName" name="LastName"/>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Date of Birth: </label>{{employee.dateOfBirth}}
-          <input class="form-control" type="date" [(ngModel)] = "employee.dateOfBirth" placeholder="DateOfBirth"/>
+          <input class="form-control" type="date" [(ngModel)]="employee.dateOfBirth" name="DateOfBirth"/>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Phone number:</label>{{employee.phoneNumber}}
-          <input class="form-control" type="text" [(ngModel)] = "employee.phoneNumber" placeholder="PhoneNumber"/>
+          <input class="form-control" type="text" [(ngModel)] = "employee.phoneNumber" name="PhoneNumber"/>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Role:</label>
-          <select class="form-select" [(ngModel)] = "employee.role">
+          <select class="form-select" [(ngModel)] = "employee.role" name="role">
             <option *ngFor="let option of EMPLOYEE_ROLE_TYPES" value="{{option}}">
               {{option}}
             </option>
@@ -31,7 +31,7 @@
 
         <div class="mb-3">
           <label class="form-label">Username:</label>{{employee.username}}
-          <input class="form-control" type="text" [(ngModel)] = "employee.username" placeholder="Username"/>
+          <input class="form-control" type="text" [(ngModel)] = "employee.username" name="Username"/>
         </div>
 
         <div class="mb-3 d-flex justify-content-between">

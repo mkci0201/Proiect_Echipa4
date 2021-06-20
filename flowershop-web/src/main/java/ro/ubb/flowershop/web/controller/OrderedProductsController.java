@@ -21,7 +21,7 @@ public class OrderedProductsController {
     @Autowired
     private OrderedProductsConverter orderedProductsConverter;
 
-    @RequestMapping(value = "api/orderedProducts/", method = RequestMethod.POST)
+    @RequestMapping(value = "api/orderedProducts", method = RequestMethod.POST)
     public OrderedProductDto addOrderedProducts(@RequestBody OrderedProductDto dto) {
 
         OrderedProduct newOrderedProducts = orderedProductsService.addOrderedProducts(

@@ -9,6 +9,10 @@ import {ProductDetailsComponent} from "./products/product-details/product-detail
 import {OrderedProductsComponent} from "./orderedproducts/orderedproducts.component";
 import {OrderedProductNewComponent} from "./orderedproducts/orderedproduct-new/orderedproduct-new.component";
 import {OrderedProductDetailsComponent} from "./orderedproducts/orderedproduct-details/orderedproduct-details.component";
+import {ShoporderComponent} from "./shoporder/shoporder.component";
+import {ShoporderNewComponent} from "./shoporder/shoporder-new/shoporder-new.component";
+import {ShoporderListComponent} from "./shoporder/shoporder-list/shoporder-list.component";
+import {ShoporderDetailsComponent} from "./shoporder/shoporder-details/shoporder-details.component";
 
 
 const routes: Routes = [
@@ -19,9 +23,9 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'product/new', component: ProductNewComponent},
   {path: 'product/detail/:id', component: ProductDetailsComponent},
-  {path: 'orders', component: OrderedProductsComponent},
-  {path: 'order/new', component: OrderedProductNewComponent},
-  {path: 'order/detail/:id', component: OrderedProductDetailsComponent}
+  {path: 'orders', component: ShoporderComponent},
+  {path: 'orders/new', component: ShoporderNewComponent},
+  {path: 'orders/detail/:id', component: ShoporderDetailsComponent}
 
 
 ];

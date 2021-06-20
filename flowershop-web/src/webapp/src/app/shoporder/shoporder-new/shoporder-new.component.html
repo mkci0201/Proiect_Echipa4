@@ -15,21 +15,45 @@
             </option>
           </select>
         </div>
+
         <div class="mb-3">
-          <label class="col-form-label">Ordered Product:</label>
-        </div>
-        <div class="mb-3">
-          <label for="orderedProduct" class="form-label">Products:</label>
-          <select class="form-select" #orderedProduct id="orderedProduct" >
-            <option *ngFor="let option of products" value="{{option.name}}">
-              {{option.name}}
+          <label for="orderedProduct" class="form-label">Select product:</label>
+          <select class="form-select" #orderedProduct id="orderedProduct" (change)="onChange(orderedProduct.value)">
+            <option *ngFor="let option of products" value="{{option.id}}">
+              {{option.color}} {{option.name}}
             </option>
           </select>
-          <button class="btn btn-light" (click)="addProduct(orderedProduct.value)">Add Product</button>
-        </div>
+          <br>
+          <div *ngIf="selectedProduct">
+            <div class="mb-3">
+              <label class="form-label">Name:</label>{{selectedProduct.name}}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description:</label>{{selectedProduct.description}}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Color:</label>{{selectedProduct.color}}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Price: </label>{{selectedProduct.price}}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Stock: </label>{{selectedProduct.stock}}
+            </div>
+            <input type="number" max="{{selectedProduct.stock}}" #orderQuantity>
+            <button class="btn btn-light"  (click)="addProduct(orderQuantity.value)">Add Product</button><br>
+          </div>
+          <div class="mb-3 card" *ngIf="orderedProducts.length > 0">
+            <legend>Products in the order</legend>
+            <ng-container *ngFor = "let p of orderedProducts">
+              <label>{{p.product.color}} {{p.product.name}} Quantity: {{p.quantity}}</label><br>
+            </ng-container>
+            <label class="form-label">Total Price : {{totalPrice}}</label>
+          </div>
+        </div> <br>
         <div class="mb-3 d-flex justify-content-between">
           <button class="btn btn-light" (click)="goBack()">Back</button>
-          <button class="btn btn-primary" (click)="addOrder(orderShopDate.value, ordershopCategory.value)">Save</button>
+          <button class="btn btn-primary" [disabled]="orderedProducts.length == 0" (click)="placeOrder(orderShopDate.value, ordershopCategory.value)">Save</button>
         </div>
       </div>
     </div>

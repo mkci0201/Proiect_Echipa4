@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Product} from "./product.model";
+import {Product, ProductColor} from "./product.model";
 import {map} from "rxjs/operators";
 
 @Injectable()
@@ -12,7 +12,7 @@ export class ProductService{
 
   }
 
-  addProduct(name: string, description: string, color: number,
+  addProduct(name: string, description: string, color: ProductColor,
              price: number, stock: number): Observable<Product>
   {
     let product = {name, description, color, price, stock};

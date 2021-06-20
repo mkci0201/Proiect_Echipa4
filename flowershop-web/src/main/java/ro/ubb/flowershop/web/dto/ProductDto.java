@@ -28,6 +28,6 @@ public class ProductDto extends BaseDto {
                 ", color=" + color +
                 ", price=" + price +
                 ", stock=" + stock +
-                '}' +super.toString();
+                '}' + super.toString();
     }
 }

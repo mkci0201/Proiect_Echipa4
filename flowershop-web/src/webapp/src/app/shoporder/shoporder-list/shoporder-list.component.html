@@ -1,1 +1,35 @@
-<p>shoporder-list works!</p>
+<div *ngIf="selectedShopOrder">
+  <h3 class="mb-3">
+    {{selectedShopOrder.id}} was selected
+  </h3>
+  <button (click)="gotoDetail()" class="btn btn-primary">View Details</button>
+</div>
+
+<h2 class="mb-3">Orders</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Order Id</th>
+    <th scope="col">Ordered Date</th>
+    <th scope="col">Category</th>
+    <th scope="col">Total Price</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of shopOrders;let i=index "
+      [class.selected]="order === selectedShopOrder"
+      (click)="onSelect(order)">
+    <th scope="row">{{i+1}}</th>
+    <td>{{order.id}}</td>
+    <td>{{order.date}}</td>
+    <td>{{order.category}}</td>
+    <td>{{totalPrice(order)}}</td>
+    <td>
+      <button class="btn btn-link delete" (click)="delete(order); $event.stopPropagation()">delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

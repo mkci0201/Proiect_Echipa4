@@ -3,7 +3,9 @@ package ro.ubb.flowershop.core.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -21,8 +23,5 @@ public class Product extends BaseEntity<Integer>{
     private ProductColor color;
     private double price;
     private int stock;
-
-    @OneToMany
-    private Set<OrderedProduct> orderedProductSet;
 
 }

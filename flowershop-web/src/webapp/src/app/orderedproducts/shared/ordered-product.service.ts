@@ -8,16 +8,16 @@ import {map} from "rxjs/operators";
 @Injectable()
 export class OrderedProductService {
 
-  private orderedProductsUrl = 'http://localhost:8080/api/orders';
+  private orderedProductsUrl = 'http://localhost:8080/api/orderedProducts';
 
   constructor(private httpClient: HttpClient) {
 
   }
 
   addOrderedProduct(product: Product, quantity: number) : Observable<OrderedProduct> {
-    let orderedProduct = {product, quantity}
+    let orderedProduct = {product, quantity};
 
-    return this.httpClient.post<OrderedProduct>(this.orderedProductsUrl, orderedProduct)
+    return this.httpClient.post<OrderedProduct>(this.orderedProductsUrl, orderedProduct);
   }
 
   updateOrderedProduct(orderedproduct): Observable<OrderedProduct> {

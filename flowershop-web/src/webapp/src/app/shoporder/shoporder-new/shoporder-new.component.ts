@@ -5,6 +5,9 @@ import {ShopOrderService} from "../shared/shoporder.service";
 import {Product} from "../../products/shared/product.model";
 import {ProductService} from "../../products/shared/product.service";
 import {OrderedProduct} from "../../orderedproducts/shared/orderedproduct.model";
+import {OrderedProductService} from "../../orderedproducts/shared/ordered-product.service";
+import {Observable} from "rxjs";
+import {summaryFileName} from "@angular/compiler/src/aot/util";
 
 
 @Component({
@@ -17,10 +20,12 @@ export class ShoporderNewComponent {
 
   CATEGORY_TYPES = CATEGORY_TYPES;
   products: Array<Product>;
-  orderedProducts: Array<OrderedProduct>;
+  orderedProducts = new Array<OrderedProduct>();
   errorMessage: string;
+  selectedProduct : Product;
 
   constructor(private shopOrderService: ShopOrderService, private productService : ProductService,
+              private orderedProductsService : OrderedProductService,
               private location: Location) {
   }
 
@@ -40,19 +45,37 @@ export class ShoporderNewComponent {
     this.location.back();
   }
 
-  addOrder(date, category): void {
 
+  placeOrder(date, category): void {
     this.shopOrderService.addOrder(date, category, this.orderedProducts).subscribe(_=>this.goBack());
-    }
+  }
 
-    addProduct(product) : void {
-    var foundProduct = this.orderedProducts.find(p => p.product.id == product.id);
+  addProduct(quantity) : void {
+    var foundProduct = null;
 
-      if(foundProduct != null){
-        foundProduct.quantity += 1;
-      }else{
-        var orderedProduct: OrderedProduct = {id:0, product:product, quantity:1 };
-        this.orderedProducts.push(orderedProduct);
-      }
+    if (this.orderedProducts.length > 0)
+     foundProduct = this.orderedProducts.find(p => p.product.id == this.selectedProduct.id);
+
+    let quantityAsNumber : number = +quantity;
+
+    if(foundProduct != null){
+      foundProduct.quantity += quantityAsNumber;
+      this.orderedProductsService.updateOrderedProduct(foundProduct);
+    } else {
+      var orderedProduct: OrderedProduct = {id:0, product:this.selectedProduct, quantity: quantityAsNumber};
+      this.orderedProductsService.addOrderedProduct(orderedProduct.product, orderedProduct.quantity).subscribe((value:OrderedProduct)=>this.orderedProducts.push(value));
     }
+  }
+
+
+
+  onChange(newValue) {
+    this.selectedProduct = this.products.find(p => p.id == newValue);
+  }
+
+  get totalPrice(){
+    let total : number = 0;
+    this.orderedProducts.forEach(a => total += a.product.price * a.quantity);
+    return total;
+  }
 }

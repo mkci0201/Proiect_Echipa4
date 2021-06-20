@@ -2,13 +2,13 @@ package ro.ubb.flowershop.core.model;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -17,8 +17,9 @@ public class ShopOrder extends BaseEntity<Integer>{
     private String date;
     private Category category;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<OrderedProduct> orderedProducts;
+
 
 
 }
