@@ -15,6 +15,8 @@ import ro.ubb.flowershop.web.dto.EmployeeDto;
 import ro.ubb.flowershop.web.dto.ShopOrderDto;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -99,6 +101,38 @@ public class OrderController {
         if (bestEmployee != null)
             return new BestEmployeeDto(employeeConverter.convertModelToDto(bestEmployee), maxSale);
         return null;
+    }
+
+    @RequestMapping(value = "api/shopordersPeriod/{startDate}/{endDate}", method = RequestMethod.GET)
+    public List<ShopOrderDto> getShopOrdersForPeriod(@PathVariable String startDate, @PathVariable String endDate) {
+
+        List<ShopOrder> orders = this.orderService.getAllOrders();
+        List<ShopOrderDto> ordersDtos = null;
+
+        Date startDateAsDate = null;
+        Date endDateAsDate = null;
+        try {
+            startDateAsDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+            endDateAsDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+        } catch (ParseException exception) {
+            exception.printStackTrace();
+        }
+
+        for (var o : orders){
+            try {
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(o.getDate());
+                if (startDateAsDate != null && endDateAsDate!= null &&
+                        date.after(startDateAsDate) && date.before(endDateAsDate)) {
+                    if (ordersDtos == null)
+                        ordersDtos = new ArrayList<>();
+                    ordersDtos.add(orderConverter.convertModelToDto(o));
+                }
+            } catch (ParseException exception) {
+                exception.printStackTrace();
+            }
+        }
+        return ordersDtos;
+
     }
 
 }

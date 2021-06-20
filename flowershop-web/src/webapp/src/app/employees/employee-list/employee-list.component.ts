@@ -30,12 +30,8 @@ export class EmployeeListComponent implements OnInit {
       );
   }
 
-  onSelect(employee: Employee): void {
-    this.selectedEmployee = employee;
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['/employee/detail', this.selectedEmployee.id]);
+  gotoDetail(employee): void {
+    this.router.navigate(['/employee/detail', employee.id]);
   }
 
   delete(employee: Employee): void {

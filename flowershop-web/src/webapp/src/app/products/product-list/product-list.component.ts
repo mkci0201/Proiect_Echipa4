@@ -29,12 +29,8 @@ export class ProductListComponent implements OnInit {
       );
   }
 
-  onSelect(product: Product): void {
-    this.selectedProduct = product;
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['/product/detail', this.selectedProduct.id]);
+  gotoDetail(product): void {
+    this.router.navigate(['/product/detail', product.id]);
   }
 
   delete(product: Product): void {

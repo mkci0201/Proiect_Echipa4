@@ -22,6 +22,11 @@ export class StatisticsComponent implements OnInit {
   bestEmployee : BestEmployee;
   updatedDate : boolean = false;
 
+  shopOrdersByDate : ShopOrder[];
+  updatedPeriodDate : boolean = false;
+
+  error : any={errorActive:false, errorMessage:''};
+
   constructor( private statisticService : StatisticsService, private shopOrderService:ShopOrderService,
                private router : Router) { }
 
@@ -49,11 +54,36 @@ export class StatisticsComponent implements OnInit {
     return orderedProduct.quantity * orderedProduct.product.price;
   }
 
+  totalPricePerOrderedProducts(orderedProducts : Array<OrderedProduct>) : number {
+    let totalValue : number = 0;
+    for (let o of orderedProducts) {
+      totalValue += this.totalPricePerProduct(o);
+    }
+    return totalValue;
+  }
+
   monthChanged(month:string) {
     this.updatedDate = true;
     this.shopOrderService.getEmployeeOfTheMonth(month).subscribe(e => this.bestEmployee = e);
 
   }
 
+  dateChanged(startDate : string, endDate : string) {
+    if (startDate && endDate) {
+      this.statisticService.getShopOrdersForPeriod(startDate, endDate).subscribe(o => this.shopOrdersByDate = o);
+      this.updatedPeriodDate = true;
+
+      let startDateAsDate = new Date(startDate);
+      let endDateAsDate = new Date(endDate);
+      if (startDateAsDate >= endDateAsDate) {
+        this.error.errorActive = true;
+        this.error.errorMessage = 'The start date must be before the end date!';
+      }
+      else {
+        this.error.errorActive = false;
+      }
+
+    }
+  }
 
 }
