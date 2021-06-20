@@ -27,6 +27,8 @@ import { ShoporderDetailsComponent } from './shoporder/shoporder-details/shopord
 import { ShoporderNewComponent } from './shoporder/shoporder-new/shoporder-new.component';
 import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-list.component';
 import {ShopOrderService} from "./shoporder/shared/shoporder.service";
+import { StatisticsComponent } from './statistics/statistics.component';
+import {StatisticsService} from "./statistics/shared/statistics.service";
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import {ShopOrderService} from "./shoporder/shared/shoporder.service";
     ShoporderDetailsComponent,
     ShoporderNewComponent,
     ShoporderListComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import {ShopOrderService} from "./shoporder/shared/shoporder.service";
     ReactiveFormsModule
   ],
   providers: [EmployeeService, ProductService, OrderedProductService, ShopOrderService,
-    ],
+    StatisticsService, ],
 
   bootstrap: [AppComponent]
 })

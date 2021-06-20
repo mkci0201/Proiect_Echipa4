@@ -1,0 +1,23 @@
+<h2>Statistics</h2>
+<h4 align="center">Best Selling Products</h4><br>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Product</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Unit Price</th>
+    <th scope="col">Total Price</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let op of orderedProducts; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{op.product.color}} {{op.product.name}}</td>
+      <td>{{op.quantity}}</td>
+      <td>{{op.product.price}} lei</td>
+      <td>{{totalPricePerProduct(op)}} lei</td>
+    </tr>
+  </tbody>
+</table>
+

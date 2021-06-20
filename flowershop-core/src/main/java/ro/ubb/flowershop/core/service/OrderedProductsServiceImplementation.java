@@ -3,11 +3,12 @@ package ro.ubb.flowershop.core.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ro.ubb.flowershop.core.model.OrderedProduct;
+import ro.ubb.flowershop.core.model.Product;
 import ro.ubb.flowershop.core.repository.OrderedProductsRepository;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class OrderedProductsServiceImplementation implements OrderedProductsService {
@@ -50,5 +51,28 @@ public class OrderedProductsServiceImplementation implements OrderedProductsServ
     @Override
     public List<OrderedProduct> getAllOrderedProducts() {
         return orderedProductsRepository.findAll();
+    }
+
+    @Override
+    public List<OrderedProduct> getBestSellingProducts(){
+
+        Map<Product, IntSummaryStatistics> result = getAllOrderedProducts()
+                                    .stream()
+                                    .collect(Collectors.groupingBy(OrderedProduct::getProduct,
+                                                                   Collectors.summarizingInt(OrderedProduct::getQuantity)));
+
+
+       List<Map.Entry<Product, IntSummaryStatistics>> productResult = result.entrySet()
+                                    .stream()
+                                    .sorted(Map.Entry.comparingByValue((p1, p2) -> Long.compare(p2.getSum(), p1.getSum())))
+                                    .collect(Collectors.toList());
+
+       List<OrderedProduct> statisticOrderedProduct = new ArrayList<>();
+       for (Map.Entry<Product, IntSummaryStatistics> var: productResult) {
+            OrderedProduct orderedProduct = new OrderedProduct(var.getKey(), (int)var.getValue().getSum());
+           statisticOrderedProduct.add(orderedProduct);
+        }
+
+        return statisticOrderedProduct;
     }
 }

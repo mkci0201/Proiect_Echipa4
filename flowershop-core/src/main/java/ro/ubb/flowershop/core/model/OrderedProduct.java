@@ -16,7 +16,6 @@ public class OrderedProduct extends BaseEntity<Integer>{
 
     @ManyToOne(optional = false)
     private Product product;
-
     private int quantity;
 
 }

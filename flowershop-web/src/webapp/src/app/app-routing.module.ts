@@ -13,6 +13,7 @@ import {ShoporderComponent} from "./shoporder/shoporder.component";
 import {ShoporderNewComponent} from "./shoporder/shoporder-new/shoporder-new.component";
 import {ShoporderListComponent} from "./shoporder/shoporder-list/shoporder-list.component";
 import {ShoporderDetailsComponent} from "./shoporder/shoporder-details/shoporder-details.component";
+import {StatisticsComponent} from "./statistics/statistics.component";
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'product/detail/:id', component: ProductDetailsComponent},
   {path: 'orders', component: ShoporderComponent},
   {path: 'orders/new', component: ShoporderNewComponent},
-  {path: 'orders/detail/:id', component: ShoporderDetailsComponent}
+  {path: 'orders/detail/:id', component: ShoporderDetailsComponent},
+  {path: 'statistics', component: StatisticsComponent}
 
 
 ];

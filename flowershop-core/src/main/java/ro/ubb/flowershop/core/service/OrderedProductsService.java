@@ -14,4 +14,5 @@ public interface OrderedProductsService {
     OrderedProduct findOne(int orderedProductsId);
 
     List<OrderedProduct> getAllOrderedProducts();
+    List<OrderedProduct> getBestSellingProducts();
 }

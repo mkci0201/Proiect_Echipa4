@@ -61,4 +61,13 @@ public class OrderedProductsController {
 
         return new ArrayList<>(orderedProductsConverter.convertModelsToDtos(orderedProducts));
     }
+
+    @RequestMapping(value = "api/productsPopularity", method = RequestMethod.GET)
+    public List<OrderedProductDto> getBestSellingProducts() {
+
+        return new ArrayList<>(orderedProductsConverter
+                                .convertModelsToDtos(orderedProductsService.getBestSellingProducts()));
+
+    }
+
 }
