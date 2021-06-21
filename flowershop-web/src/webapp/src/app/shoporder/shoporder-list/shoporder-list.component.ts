@@ -29,12 +29,8 @@ export class ShoporderListComponent implements OnInit {
       );
   }
 
-  onSelect(order: ShopOrder): void {
-    this.selectedShopOrder = order;
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['orders/detail', this.selectedShopOrder.id]);
+  gotoDetail(shopOrder): void {
+    this.router.navigate(['orders/detail', shopOrder.id]);
   }
 
   delete(order: ShopOrder): void {

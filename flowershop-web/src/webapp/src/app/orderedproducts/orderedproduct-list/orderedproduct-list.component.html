@@ -14,11 +14,11 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let op of orderedProducts" [class.selected]="op === selectedOrderedProduct" (click)="onSelect(op)">
-      <td>{{op.id}}</td>
-      <td>{{op.product}}</td>
-      <td>{{op.quantity}}</td>
-      <td><button class="btn btn-link" (click)="deleteOrderedProduct(op); $event.stopPropagation()">Delete</button></td>
-    </tr>
+  <tr *ngFor="let op of orderedProducts" [class.selected]="op === selectedOrderedProduct" (click)="onSelect(op)">
+    <td>{{op.id}}</td>
+    <td>{{op.product}}</td>
+    <td>{{op.quantity}}</td>
+    <td><button class="btn btn-link" (click)="deleteOrderedProduct(op); $event.stopPropagation()">Delete</button></td>
+  </tr>
   </tbody>
 </table>

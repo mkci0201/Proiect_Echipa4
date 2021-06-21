@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class OrderedProductListComponent implements OnInit {
 
+
   errorMessage: string;
   orderedProducts: OrderedProduct[];
   selectedOrderedProduct: OrderedProduct;

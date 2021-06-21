@@ -42,7 +42,7 @@
           *ngIf="password.errors && f.submitted"
         >
           <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
+          <div *ngIf="password.errors.minLength">
             Password must be at least 6 characters
           </div>
         </div>

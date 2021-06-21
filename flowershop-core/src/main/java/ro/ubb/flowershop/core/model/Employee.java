@@ -14,13 +14,13 @@ import java.util.Set;
 @ToString(callSuper = true)
 public class Employee extends BaseEntity<Integer>{
 
+
+
     private String username;
     private String firstName, lastName;
     private EmployeeRole role;
     private String dateOfBirth, phoneNumber, password;
 
-    //@OneToMany
-    //private Set<ShopOrder> shopOrderSet;
 
 
 }
