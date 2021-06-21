@@ -40,13 +40,17 @@
             <div class="mb-3">
               <label class="form-label">Stock: </label>{{selectedProduct.stock}}
             </div>
-            <input type="number" max="{{selectedProduct.stock}}" #orderQuantity>
-            <button class="btn btn-light"  (click)="addProduct(orderQuantity.value)">Add Product</button><br>
+            <div *ngIf="stockError.errorActive" class="alert alert-danger">
+              {{stockError.errorMessage}}
+            </div>
+            <input type="number" value="1" min="1" max="{{selectedProduct.stock}}" #orderQuantity (change)="onSelectedProductStock(selectedProduct.stock, orderQuantity.value)">
+            <button class="btn btn-light" [disabled]="stockError.errorActive || !orderQuantity.value || orderQuantity.value=='0' " (click)="addProduct(orderQuantity.value)">Add Product</button><br>
           </div>
           <div class="mb-3 card" *ngIf="orderedProducts.length > 0">
             <legend>Products in the order</legend>
             <ng-container *ngFor = "let p of orderedProducts">
-              <label>{{p.product.color}} {{p.product.name}} Quantity: {{p.quantity}}</label><br>
+              <label>{{p.product.color}} {{p.product.name}} Quantity: {{p.quantity}}</label>
+              <button class="btn btn-link" (click)="delete(p); $event.stopPropagation()">Delete</button>
             </ng-container>
             <label class="form-label">Total Price : {{totalPrice}}</label>
           </div>

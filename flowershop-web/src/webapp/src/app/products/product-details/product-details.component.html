@@ -4,17 +4,17 @@
       <div class="col-8 offset-2 card">
         <legend>{{product.name}} details:</legend>
         <div class="mb-3">
-          <label class="form-label">Name:</label>{{product.name}}
-          <input class="form-control" [(ngModel)] = "product.name" placeholder="Name"/>
+          <label class="form-label">Name</label>
+          <input class="form-control" [(ngModel)] = "product.name" name="Name"/>
         </div>
         <div class="mb-3">
-          <label class="form-label">Description:</label>{{product.description}}
-          <textarea class="form-control" [(ngModel)] = "product.description" placeholder="Description"></textarea>
+          <label class="form-label">Description</label>
+          <textarea class="form-control" [(ngModel)] = "product.description" name="Description"></textarea>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Color:</label>
-          <select class="form-select" [(ngModel)] = "product.color">
+          <label class="form-label">Color</label>
+          <select class="form-select" [(ngModel)] = "product.color" name="color">
             <option *ngFor="let option of PRODUCT_COLOR_TYPES" value="{{option}}">
               {{option}}
             </option>
@@ -22,16 +22,16 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Price: </label>{{product.price}}
+          <label class="form-label">Price </label>
           <div class="input-group">
-            <input type="number" class="form-control" [(ngModel)] = "product.price" placeholder="Price"/>
+            <input type="number" class="form-control" [(ngModel)] = "product.price" name="Price"/>
             <span class="input-group-text" id="basic-addon2">lei</span>
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Stock: </label>{{product.stock}}
-          <input type="number" class="form-control" [(ngModel)] = "product.stock" placeholder="Stock"/>
+          <label class="form-label">Stock </label>
+          <input type="number" class="form-control" [(ngModel)] = "product.stock" name="Stock"/>
         </div>
 
         <div class="mb-3 d-flex justify-content-between">
