@@ -14,6 +14,7 @@ import {ShoporderNewComponent} from "./shoporder/shoporder-new/shoporder-new.com
 import {ShoporderListComponent} from "./shoporder/shoporder-list/shoporder-list.component";
 import {ShoporderDetailsComponent} from "./shoporder/shoporder-details/shoporder-details.component";
 import {StatisticsComponent} from "./statistics/statistics.component";
+import {LoginComponent} from "./login/login.component";
 
 
 const routes: Routes = [
@@ -27,7 +28,9 @@ const routes: Routes = [
   {path: 'orders', component: ShoporderComponent},
   {path: 'orders/new', component: ShoporderNewComponent},
   {path: 'orders/detail/:id', component: ShoporderDetailsComponent},
-  {path: 'statistics', component: StatisticsComponent}
+  {path: 'statistics', component: StatisticsComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'}
 
 
 ];

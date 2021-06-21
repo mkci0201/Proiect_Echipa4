@@ -16,16 +16,16 @@ ro/ubb/flowershop/web/security/jwt/JwtUtils.java
  ro.ubb.flowershop.web.security.jwt.JwtUtils
 ro/ubb/flowershop/web/converter/ShopOrderConverter.java
  ro.ubb.flowershop.web.converter.ShopOrderConverter
-ro/ubb/flowershop/web/controller/AuthController.java
- ro.ubb.flowershop.web.controller.AuthController
+ro/ubb/flowershop/web/converter/Converter.java
+ ro.ubb.flowershop.web.converter.Converter
 ro/ubb/flowershop/web/dto/ShopOrderDto.java
  ro.ubb.flowershop.web.dto.ShopOrderDto
 ro/ubb/flowershop/web/controller/ProductController.java
  ro.ubb.flowershop.web.controller.ProductController
 ro/ubb/flowershop/web/config/WebSecurityConfig.java
  ro.ubb.flowershop.web.config.WebSecurityConfig
-ro/ubb/flowershop/web/response/JwtResponse.java
- ro.ubb.flowershop.web.response.JwtResponse
+ro/ubb/flowershop/web/dto/BestEmployeeDto.java
+ ro.ubb.flowershop.web.dto.BestEmployeeDto
 ro/ubb/flowershop/web/config/WebConfig.java
  ro.ubb.flowershop.web.config.WebConfig
  ro.ubb.flowershop.web.config.WebConfig$1
@@ -43,7 +43,7 @@ ro/ubb/flowershop/web/dto/EmployeeDto.java
  ro.ubb.flowershop.web.dto.EmployeeDto
 ro/ubb/flowershop/web/security/jwt/AuthTokenFilter.java
  ro.ubb.flowershop.web.security.jwt.AuthTokenFilter
-ro/ubb/flowershop/web/converter/Converter.java
- ro.ubb.flowershop.web.converter.Converter
-ro/ubb/flowershop/web/dto/BestEmployeeDto.java
- ro.ubb.flowershop.web.dto.BestEmployeeDto
+ro/ubb/flowershop/web/response/JwtResponse.java
+ ro.ubb.flowershop.web.response.JwtResponse
+ro/ubb/flowershop/web/controller/AuthController.java
+ ro.ubb.flowershop.web.controller.AuthController

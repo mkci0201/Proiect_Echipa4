@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
 import {summaryFileName} from "@angular/compiler/src/aot/util";
 import {Employee} from "../../employees/shared/employee.model";
 import {EmployeeService} from "../../employees/shared/employee.service";
+import {TokenStorageService} from "../../login/shared/tokenstorage.service";
 
 
 @Component({
@@ -27,18 +28,28 @@ export class ShoporderNewComponent {
   selectedProduct : Product;
   employee: Employee;
   stockError : any={errorActive:false, errorMessage:''};
+  employeeId : number;
+  isLoggedIn = false;
+
 
   @ViewChild('orderQuantity') orderQuantity;
 
   constructor(private shopOrderService: ShopOrderService, private productService : ProductService,
               private orderedProductsService : OrderedProductService,
               private employeeService : EmployeeService,
-              private location: Location) {
+              private location: Location, private tokenStorageService: TokenStorageService) {
   }
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.employeeId = user.id;
+      console.log(this.employeeId);
+    }
     this.getEmployee();
+
   }
 
   getAllProducts() {
@@ -50,7 +61,7 @@ export class ShoporderNewComponent {
   }
 
   getEmployee() {
-    this.employeeService.findOne(1)
+    this.employeeService.findOne(this.employeeId)
       .subscribe(
         employee => this.employee = employee,
         error => this.errorMessage = <any>error
@@ -63,6 +74,7 @@ export class ShoporderNewComponent {
 
 
   placeOrder(date, category): void {
+    console.log(this.employee);
     this.shopOrderService.addOrder(date, category, this.orderedProducts, this.employee).subscribe(v => this.orderPlacedSuccessfully(v));
   }
 

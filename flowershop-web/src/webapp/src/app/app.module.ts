@@ -29,6 +29,10 @@ import { ShoporderListComponent } from './shoporder/shoporder-list/shoporder-lis
 import {ShopOrderService} from "./shoporder/shared/shoporder.service";
 import { StatisticsComponent } from './statistics/statistics.component';
 import {StatisticsService} from "./statistics/shared/statistics.service";
+import { LoginComponent } from './login/login.component';
+import {AuthService} from "./login/shared/auth.service";
+import {TokenStorageService} from "./login/shared/tokenstorage.service";
+import {AuthInterceptor, authInterceptorProviders} from "./login/shared/auth-interceptor";
 
 @NgModule({
   declarations: [
@@ -51,6 +55,7 @@ import {StatisticsService} from "./statistics/shared/statistics.service";
     ShoporderNewComponent,
     ShoporderListComponent,
     StatisticsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,7 @@ import {StatisticsService} from "./statistics/shared/statistics.service";
     ReactiveFormsModule
   ],
   providers: [EmployeeService, ProductService, OrderedProductService, ShopOrderService,
-    StatisticsService, ],
+    StatisticsService, AuthService, TokenStorageService, authInterceptorProviders],
 
   bootstrap: [AppComponent]
 })
