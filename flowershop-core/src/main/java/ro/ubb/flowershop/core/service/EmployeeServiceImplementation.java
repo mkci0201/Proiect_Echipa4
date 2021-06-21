@@ -1,6 +1,7 @@
 package ro.ubb.flowershop.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     @Override
     public Employee addEmployee(Employee employee) {
-
+        employee.setPassword(BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt()));
         Employee newEmployee = employeeRepository.save(employee);
         return newEmployee;
     }
@@ -37,7 +38,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
             e.setLastName(employee.getLastName());
             e.setRole(employee.getRole());
             e.setPhoneNumber(employee.getPhoneNumber());
-            e.setPassword(employee.getPassword());
+            e.setPassword(BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt()));
         });
 
         return uEmployee.orElse(null);
@@ -75,5 +76,10 @@ public class EmployeeServiceImplementation implements EmployeeService {
         return employeeRepository.findAllByRole(role);
     }
 
+    @Override
+    public Employee findByUsername(String username){
+
+        return this.employeeRepository.findByUsername(username);
+    }
 }
 

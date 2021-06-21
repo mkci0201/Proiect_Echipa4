@@ -1,3 +1,5 @@
+ro/ubb/flowershop/web/security/jwt/AuthEntryPointJwt.java
+ ro.ubb.flowershop.web.security.jwt.AuthEntryPointJwt
 ro/ubb/flowershop/web/dto/OrderedProductDto.java
  ro.ubb.flowershop.web.dto.OrderedProductDto
 ro/ubb/flowershop/web/dto/BaseDto.java
@@ -10,17 +12,27 @@ ro/ubb/flowershop/web/converter/BaseConverter.java
  ro.ubb.flowershop.web.converter.BaseConverter
 ro/ubb/flowershop/web/controller/OrderController.java
  ro.ubb.flowershop.web.controller.OrderController
+ro/ubb/flowershop/web/security/jwt/JwtUtils.java
+ ro.ubb.flowershop.web.security.jwt.JwtUtils
 ro/ubb/flowershop/web/converter/ShopOrderConverter.java
  ro.ubb.flowershop.web.converter.ShopOrderConverter
+ro/ubb/flowershop/web/controller/AuthController.java
+ ro.ubb.flowershop.web.controller.AuthController
 ro/ubb/flowershop/web/dto/ShopOrderDto.java
  ro.ubb.flowershop.web.dto.ShopOrderDto
 ro/ubb/flowershop/web/controller/ProductController.java
  ro.ubb.flowershop.web.controller.ProductController
+ro/ubb/flowershop/web/config/WebSecurityConfig.java
+ ro.ubb.flowershop.web.config.WebSecurityConfig
+ro/ubb/flowershop/web/response/JwtResponse.java
+ ro.ubb.flowershop.web.response.JwtResponse
 ro/ubb/flowershop/web/config/WebConfig.java
  ro.ubb.flowershop.web.config.WebConfig
  ro.ubb.flowershop.web.config.WebConfig$1
 ro/ubb/flowershop/web/converter/OrderedProductsConverter.java
  ro.ubb.flowershop.web.converter.OrderedProductsConverter
+ro/ubb/flowershop/web/security/test.java
+ ro.ubb.flowershop.web.security.test
 ro/ubb/flowershop/web/converter/EmployeeConverter.java
  ro.ubb.flowershop.web.converter.EmployeeConverter
 ro/ubb/flowershop/web/controller/OrderedProductsController.java
@@ -29,6 +41,8 @@ ro/ubb/flowershop/web/converter/ProductConverter.java
  ro.ubb.flowershop.web.converter.ProductConverter
 ro/ubb/flowershop/web/dto/EmployeeDto.java
  ro.ubb.flowershop.web.dto.EmployeeDto
+ro/ubb/flowershop/web/security/jwt/AuthTokenFilter.java
+ ro.ubb.flowershop.web.security.jwt.AuthTokenFilter
 ro/ubb/flowershop/web/converter/Converter.java
  ro.ubb.flowershop.web.converter.Converter
 ro/ubb/flowershop/web/dto/BestEmployeeDto.java

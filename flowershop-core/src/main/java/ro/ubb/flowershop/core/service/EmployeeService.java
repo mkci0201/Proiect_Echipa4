@@ -20,5 +20,6 @@ public interface EmployeeService {
     List<Employee> getAllEmployees();
 
     List<Employee> findAllByRole(EmployeeRole role);
+    Employee findByUsername(String username);
 
 }

@@ -9,7 +9,9 @@ import java.util.List;
 
 public interface EmployeeRepository extends FlowerShopRepository<Employee, Integer>{
 
-        /*SetJoin<Employee, ShopOrder> findAllShopOrdersPerEmployee();*/
+
         List<Employee> findAllByRole(EmployeeRole role);
+        Employee findByUsername(String username);
+
 
 }
