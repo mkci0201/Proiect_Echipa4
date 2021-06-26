@@ -33,6 +33,9 @@ import { LoginComponent } from './login/login.component';
 import {AuthService} from "./login/shared/auth.service";
 import {TokenStorageService} from "./login/shared/tokenstorage.service";
 import {AuthInterceptor, authInterceptorProviders} from "./login/shared/auth-interceptor";
+import { ModalComponent } from './modal/modal.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +59,7 @@ import {AuthInterceptor, authInterceptorProviders} from "./login/shared/auth-int
     ShoporderListComponent,
     StatisticsComponent,
     LoginComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ import {AuthInterceptor, authInterceptorProviders} from "./login/shared/auth-int
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [EmployeeService, ProductService, OrderedProductService, ShopOrderService,
     StatisticsService, AuthService, TokenStorageService, authInterceptorProviders],

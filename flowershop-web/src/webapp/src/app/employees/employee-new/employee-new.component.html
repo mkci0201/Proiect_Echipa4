@@ -1,23 +1,66 @@
 <div class="container">
-  <form>
+  <form name="form"
+        (ngSubmit)="f.form.valid"
+        #f="ngForm"
+        novalidate>
     <div class="row">
       <div class="col-8 offset-2 card">
         <legend>Add new employee</legend>
         <div class="mb-3">
           <label for="employeeUserName" class="form-label">Username:</label>
-          <input type="text" class="form-control" id="employeeUserName" placeholder="username" name="employeeUserName" #employeeUserName/>
+          <input type="text"
+                 class="form-control"
+                 id="employeeUserName"
+                 placeholder="username"
+                 minlength="4"
+                 name="employeeUserName"
+                 required
+                 [(ngModel)]="employee.username"
+                 #employeeUserName="ngModel"
+          />
+          <div class="" *ngIf="employeeUserName.invalid && (employeeUserName.dirty || employeeUserName.touched) || f.submitted">
+            <small id="userNameHelp" class="form-text text-danger" *ngIf="employeeUserName.errors?.required">
+              Username is required!
+            </small>
+          </div>
         </div>
         <div class="mb-3">
           <label for="employeeFirstName" class="form-label">First Name:</label>
-          <input type="text" class="form-control" id="employeeFirstName" placeholder="John" name="employeeFirstName" #employeeFirstName/>
+          <input type="text"
+                 class="form-control"
+                 id="employeeFirstName"
+                 placeholder="John"
+                 name="employeeFirstName"
+                 required
+                 [(ngModel)]="employee.firstName"
+                 #employeeFirstName="ngModel"
+          />
+          <div class="" *ngIf="employeeFirstName.invalid && (employeeFirstName.dirty || employeeFirstName.touched) || f.submitted">
+            <small id="userFirstNameHelp" class="form-text text-danger" *ngIf="employeeFirstName.errors?.required">
+              First name is required!
+            </small>
+          </div>
         </div>
         <div class="mb-3">
           <label for="employeeLastName" class="form-label">Last Name:</label>
-          <input type="text" class="form-control" id="employeeLastName" placeholder="John" name="employeeLastName" #employeeLastName/>
+          <input type="text"
+                 class="form-control"
+                 id="employeeLastName"
+                 placeholder="John"
+                 name="employeeLastName"
+                 required
+                 [(ngModel)]="employee.lastName"
+                 #employeeLastName="ngModel"
+          />
+          <div class="" *ngIf="employeeLastName.invalid && (employeeLastName.dirty || employeeLastName.touched) || f.submitted">
+            <small id="userLastNameHelp" class="form-text text-danger" *ngIf="employeeLastName.errors?.required">
+              Last name is required!
+            </small>
+          </div>
         </div>
         <div class="mb-3">
           <label for="employeeRole" class="form-label">Role:</label>
-          <select class="form-select" #employeeRole id="employeeRole" >
+          <select class="form-select" #employeeRole id="employeeRole" required>
             <option *ngFor="let option of EMPLOYEE_ROLE_TYPES" value="{{option}}">
               {{option}}
             </option>
@@ -29,11 +72,44 @@
         </div>
         <div class="mb-3">
           <label for="employeePhoneNumber" class="form-label">Phone Number:</label>
-          <input type="number" id="employeePhoneNumber" name="employeePhoneNumber" class="form-control" placeholder="0755667788" #employeePhoneNumber/>
+          <input type="number"
+                 id="employeePhoneNumber"
+                 name="employeePhoneNumber"
+                 class="form-control"
+                 placeholder="0755667788"
+                 required
+                 minlength="10"
+                 [(ngModel)]="employee.phoneNumber"
+                 #employeePhoneNumber="ngModel"
+          />
+          <div class="" *ngIf="employeePhoneNumber.invalid && (employeePhoneNumber.dirty || employeePhoneNumber.touched) || f.submitted">
+            <small id="userPhoneHelp" class="form-text text-danger" *ngIf="employeePhoneNumber.errors?.required">
+              Phone number is required!
+            </small>
+            <small id="userPhoneHelpMin" class="form-text text-danger" *ngIf="employeePhoneNumber.errors?.minlength">
+              Phone number be at least 10 characters long.
+            </small>
+          </div>
         </div>
         <div class="mb-3">
           <label for="employeePassword" class="form-label">Password:</label>
-          <input type="password" id="employeePassword" name="employeePassword" class="form-control" #employeePassword/>
+          <input type="password"
+                 id="employeePassword"
+                 name="employeePassword"
+                 class="form-control"
+                 required
+                 minlength="6"
+                 [(ngModel)]="employee.password"
+                 #employeePassword="ngModel"
+          />
+          <div class="" *ngIf="employeePassword.invalid && (employeePassword.dirty || employeePassword.touched) || f.submitted">
+            <small id="userPassHelp" class="form-text text-danger" *ngIf="employeePassword.errors?.required">
+              Password is required!
+            </small>
+            <small id="userPassHelpMin" class="form-text text-danger" *ngIf="employeePassword.errors?.minlength">
+              Password be at least 6 characters long.
+            </small>
+          </div>
         </div>
         <div class="mb-3 d-flex justify-content-between">
           <button class="btn btn-outline-dark" (click)="goBack()">
@@ -43,7 +119,7 @@
             </svg>
           </button>
           <button class="btn btn-outline-dark" (click)="addEmployee(employeeUserName.value, employeeFirstName.value, employeeLastName.value,
-    employeeRole.value, employeeDateOfBirth.value, employeePhoneNumber.value, employeePassword.value)">
+    employeeRole.value, employeeDateOfBirth.value, employeePhoneNumber.value, employeePassword.value)" [disabled]="f.invalid">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
               <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
             </svg>
