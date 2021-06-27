@@ -30,7 +30,7 @@ public class Employee extends BaseEntity<Integer>{
     private EmployeeRole role;
 
     @NotNull
-    //@Pattern(regexp = "^(19|20)\\d\\d[/](0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$", message="Introduced date is not correct")
+    @Pattern(regexp = "^(19|20)\\d\\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$", message="Introduced date is not correct")
     private String dateOfBirth;
 
     @NotNull
@@ -38,7 +38,7 @@ public class Employee extends BaseEntity<Integer>{
     private String phoneNumber;
 
     @NotNull
-//    @Size(min=8, message = "Password should have at least 8 characters")
+//    @Size(min=6, message = "Password should have at least 6 characters")
 //    @Pattern.List ({
 //            @Pattern(regexp = "(?=.*[0-9]).+", message = "Password must contain one digit."),
 //            @Pattern(regexp = "(?=.*[a-z]).+", message = "Password must contain one lowercase letter."),
@@ -46,8 +46,8 @@ public class Employee extends BaseEntity<Integer>{
 //            @Pattern(regexp = "(?=.*[!@#$%^&*+=?-_()/\"\\.,<>~`;:]).+", message ="Password must contain one special character."),
 //            @Pattern(regexp = "(?=\\S+$).+", message = "Password must contain no whitespace.")
 //    })
-    @Size(min=8, message = "Password should have at least 8 characters")
-    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "Password must contain one digit, one lowercase letter, one uppercase letter, one special character")
+    @Size(min=6, message = "Password should have at least 6 characters")
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$", message = "Password must contain one digit, one lowercase letter, one uppercase letter")
     private String password;
 
 

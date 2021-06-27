@@ -26,7 +26,7 @@ public class Product extends BaseEntity<Integer>{
     @Size(min=3, max=30, message = "The name '${validatedValue}' must be between {min} and {max} characters long")
     private String name;
 
-    @Size(max=50, message = "Description should not surpass 50 characters")
+    @Size(max=250, message = "Description should not surpass 250 characters")
     private String description;
 
     private ProductColor color;

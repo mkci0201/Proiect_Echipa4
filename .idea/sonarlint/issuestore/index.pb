@@ -41,8 +41,6 @@ Gflowershop-web/src/main/java/ro/ubb/flowershop/web/dto/EmployeeDto.java,f\3\f3
 Nflowershop-main/src/main/java/ro/ubb/flowershop/FlowerShopMainApplication.java,4\3\43ca64691310f8c8000590692d91cfbc409870d2
 ƒ
 Sflowershop-web/src/webapp/src/app/products/product-list/product-list.component.html,b\9\b94c846bfaaac85d7bdfa75d8bbf6a38ce32f1e4
-†
-Vflowershop-web/src/webapp/src/app/employees/employee-list/employee-list.component.html,8\e\8e69c0409ff6f6cce5b752841a655fe06541b98a
 t
 Dflowershop-web/src/webapp/src/app/employees/shared/employee.model.ts,0\2\028efb0e64d2e0f7ac7671131dda993e20780d9f
 v

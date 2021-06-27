@@ -12,7 +12,8 @@
                  class="form-control"
                  id="employeeUserName"
                  placeholder="username"
-                 minlength="4"
+                 minlength="3"
+                 maxlength="30"
                  name="employeeUserName"
                  required
                  [(ngModel)]="employee.username"
@@ -30,6 +31,8 @@
                  class="form-control"
                  id="employeeFirstName"
                  placeholder="John"
+                 minlength="3"
+                 maxlength="30"
                  name="employeeFirstName"
                  required
                  [(ngModel)]="employee.firstName"
@@ -47,6 +50,8 @@
                  class="form-control"
                  id="employeeLastName"
                  placeholder="John"
+                 minlength="3"
+                 maxlength="30"
                  name="employeeLastName"
                  required
                  [(ngModel)]="employee.lastName"
@@ -72,7 +77,8 @@
         </div>
         <div class="mb-3">
           <label for="employeePhoneNumber" class="form-label">Phone Number:</label>
-          <input type="number"
+          <input type="tel"
+                 pattern="[0-9]*"
                  id="employeePhoneNumber"
                  name="employeePhoneNumber"
                  class="form-control"

@@ -3,6 +3,7 @@ package ro.ubb.flowershop.core.model;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ import java.util.Set;
 public class ShopOrder extends BaseEntity<Integer>{
 
     @NotNull
-//    @Pattern(regexp = "^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\\d\\d$", message="Introduced date is not correct")
+    @Pattern(regexp = "^(19|20)\\d\\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$", message="Introduced date is not correct")
     private String date;
 
     private Category category;
