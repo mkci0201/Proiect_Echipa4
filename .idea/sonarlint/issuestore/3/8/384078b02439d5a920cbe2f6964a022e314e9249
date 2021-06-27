@@ -1,0 +1,26 @@
+
+a
+java:S1128"FRemove this unused import 'org.springframework.stereotype.Controller'.(øŠ—Öùÿÿÿÿ
+l
+java:S1128"QRemove this unused import 'org.springframework.context.annotation.ComponentScan'.(æëòÒûÿÿÿÿ
+`
+java:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(­éïà
+J
+java:S6212!"/Declare this local variable with "var" instead.(‰ç™¦üÿÿÿÿ
+^
+java:S4488("HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(ığ½É
+<
+java:S1452/"&Remove usage of generic wildcard type.(æÊœà
+i
+java:S4488."NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(³’À†úÿÿÿÿ
+@
+java:S21753"*A "List<Employee>" cannot contain a "int".(šˆ±¥
+^
+java:S44888"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Š¾®
+J
+java:S6212;"/Declare this local variable with "var" instead.(Å©ç’øÿÿÿÿ
+c
+java:S4488@"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¤Ÿ‰…ùÿÿÿÿ
+e
+java:S4488G"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ê¢ıã8Üâæ§£/
+]	java:S125P"<This block of commented-out lines of code should be removed.(¯ÛÓåşÿÿÿÿ8Üâæ§£/

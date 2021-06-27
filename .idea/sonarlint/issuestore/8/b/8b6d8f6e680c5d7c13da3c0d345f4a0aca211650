@@ -1,0 +1,15 @@
+
+c
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(îÙùôùÿÿÿÿ
+c
+java:S4488$"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(Ï¥¶Ùûÿÿÿÿ
+<
+java:S1452+"&Remove usage of generic wildcard type.(•íÌ®
+d
+java:S4488*"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(§ü¼ë
+A
+java:S2175/"+A "List<ShopOrder>" cannot contain a "int".(«Ÿ€ì
+^
+java:S44885"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¶ùœ‰
+^
+java:S4488="HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ø¿±

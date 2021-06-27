@@ -57,8 +57,6 @@ Bflowershop-web/src/webapp/src/app/products/shared/product.model.ts,8\9\89fc228
 Qflowershop-web/src/webapp/src/app/products/product-list/product-list.component.ts,5\0\50ab626dc02eb25078a75ddc933642fdb91aa5db
 „
 Tflowershop-web/src/main/java/ro/ubb/flowershop/web/controller/ProductController.java,8\c\8c738a60c8820cc78b60fec192cb8f0c69a30bf2
-L
-flowershop-core/build.gradle,a\2\a26c25aec05b7214686cd474b8619f801188660d
 „
 Tflowershop-web/src/webapp/src/app/employees/employee-list/employee-list.component.ts,9\a\9ace784eaae60fcd1312162f67d3876a052ba814
 w
