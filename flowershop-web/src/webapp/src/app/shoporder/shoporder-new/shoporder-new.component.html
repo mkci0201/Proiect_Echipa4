@@ -20,7 +20,7 @@
           <label for="orderedProduct" class="form-label">Select product:</label>
           <select class="form-select" #orderedProduct id="orderedProduct" (change)="onChange(orderedProduct.value)">
             <option *ngFor="let option of products" value="{{option.id}}">
-              {{option.color}} {{option.name}}
+              {{option.color}} {{option.name}} {{option.description}}
             </option>
           </select>
           <br>
