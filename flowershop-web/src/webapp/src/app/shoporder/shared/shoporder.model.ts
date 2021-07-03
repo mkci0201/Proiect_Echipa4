@@ -14,7 +14,6 @@ export enum Category{
   Arrangements,
   Plants,
   Flower,
-  Decoration,
 
 }
-export const CATEGORY_TYPES = ['Bouquets', 'Arrangements', 'Plants', 'Flower', 'Decoration'];
+export const CATEGORY_TYPES = ['Bouquets', 'Arrangements', 'Plants', 'Flower'];

@@ -5,5 +5,4 @@ public enum Category {
     Arrangements,
     Plants,
     Flower,
-    Decoration,
 }

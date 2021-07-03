@@ -1,6 +1,9 @@
 package ro.ubb.flowershop.core.model;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -22,10 +25,11 @@ public class ShopOrder extends BaseEntity<Integer>{
 
     private Category category;
 
-    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.MERGE, fetch= FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "shop_order_id")
     private Set<OrderedProduct> orderedProducts;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;
 
 
