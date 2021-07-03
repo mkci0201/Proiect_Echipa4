@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn = false;
   username? : string;
-  private role : string;
+  role : string;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 

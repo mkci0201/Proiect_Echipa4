@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/FlowerShop</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="FlowerShop@localhost [2]" uuid="ead44af5-1890-4421-a913-96a6043ca08b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/FlowerShop</jdbc-url>
+    </data-source>
   </component>
 </project>

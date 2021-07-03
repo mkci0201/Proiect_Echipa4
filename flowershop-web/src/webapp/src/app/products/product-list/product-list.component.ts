@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from "../shared/product.model";
 import {ProductService} from "../shared/product.service";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../../login/shared/tokenstorage.service";
 
 @Component({
   moduleId: module.id,
@@ -13,12 +14,14 @@ export class ProductListComponent implements OnInit {
   errorMessage: string;
   products: Array<Product>;
   selectedProduct: Product;
+  role: string;
 
-  constructor(private productService: ProductService,
+  constructor(private productService: ProductService, private tokenStorageService: TokenStorageService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.role = this.tokenStorageService.getUser().roles[0];
   }
 
   getAllProducts() {

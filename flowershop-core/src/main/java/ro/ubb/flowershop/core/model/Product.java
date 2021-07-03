@@ -2,6 +2,7 @@ package ro.ubb.flowershop.core.model;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -38,5 +39,9 @@ public class Product extends BaseEntity<Integer>{
     @NotNull(message = "Stock must be entered")
     @PositiveOrZero(message="Stock must be positive")
     private int stock;
+
+    @NotNull
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean withdrawn;
 
 }

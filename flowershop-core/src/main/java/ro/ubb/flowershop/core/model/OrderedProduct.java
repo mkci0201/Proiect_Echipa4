@@ -16,7 +16,7 @@ import javax.validation.constraints.Positive;
 @ToString(callSuper = true)
 public class OrderedProduct extends BaseEntity<Integer>{
 
-    @ManyToOne(optional = false)
+    @OneToOne(optional = false)
     private Product product;
 
     @NotNull(message = "Quantity must be entered")

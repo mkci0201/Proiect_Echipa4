@@ -11,6 +11,7 @@ import {BestEmployee} from "../../statistics/shared/bestemployee.model";
 export class ShopOrderService {
   private shopOrdersUrl = 'http://localhost:8080/api/shoporders';
   private bestEmployee = 'http://localhost:8080/api/bestEmployee';
+  private ordersPerEmployee = 'http://localhost:8080/api/shoporders/filtered';
 
   constructor(private httpClient: HttpClient) {
 
@@ -39,6 +40,12 @@ export class ShopOrderService {
 
   getAllOrders() : Observable<ShopOrder[]>{
     return this.httpClient.get<Array<ShopOrder>>(this.shopOrdersUrl);
+
+  }
+
+  getAllOrdersPerEmployee(id: number) : Observable<ShopOrder[]>{
+    const url = `${this.ordersPerEmployee}/${id}`;
+    return this.httpClient.get<Array<ShopOrder>>(url);
 
   }
 
