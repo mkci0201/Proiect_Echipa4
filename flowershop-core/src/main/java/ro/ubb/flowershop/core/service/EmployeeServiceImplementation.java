@@ -13,6 +13,7 @@ import ro.ubb.flowershop.core.repository.EmployeeRepository;
 import javax.persistence.criteria.SetJoin;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class EmployeeServiceImplementation implements EmployeeService {
@@ -33,12 +34,14 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
         Optional<Employee> uEmployee = employeeRepository.findById(employeeId);
 
-        uEmployee.ifPresent(e->{
-            e.setFirstName(employee.getFirstName());
-            e.setLastName(employee.getLastName());
-            e.setRole(employee.getRole());
-            e.setPhoneNumber(employee.getPhoneNumber());
-            e.setPassword(BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt()));
+        uEmployee
+                 .ifPresent(e->{
+                    e.setFirstName(employee.getFirstName());
+                    e.setLastName(employee.getLastName());
+                    e.setDateOfBirth(employee.getDateOfBirth());
+                    e.setRole(employee.getRole());
+                    e.setPhoneNumber(employee.getPhoneNumber());
+                    e.setPassword(BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt()));
         });
 
         return uEmployee.orElse(null);
@@ -46,40 +49,51 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
 
     @Override
+    @Transactional
     public void deleteEmployee(int employeeId) {
 
-       employeeRepository.deleteById(employeeId);
-
+        Optional<Employee> employeeRemove = employeeRepository.findById(employeeId);
+        employeeRemove.ifPresent(e ->{
+            e.setInactive(true);
+        });
 
     }
 
     @Override
     public Employee findOne(int employeeId) {
 
-        Employee employee = employeeRepository.findById(employeeId).orElseThrow();
-        return employee;
+        Employee employee = this.employeeRepository.findById(employeeId).orElseThrow();
+
+        if(employee != null && !employee.isInactive()){
+
+            return employee;
+        }
+        return null;
     }
 
     @Override
     public List<Employee> getAllEmployees() {
 
-        return employeeRepository.findAll();
+        return employeeRepository.findAll().stream().filter(e -> e.isInactive() == false).collect(Collectors.toList());
     }
-
-  /*  @Override
-    public SetJoin<Employee, ShopOrder> findAllShopOrdersPerEmployee(){
-        return employeeRepository.findAllShopOrdersPerEmployee();
-    }*/
-
     @Override
     public List<Employee> findAllByRole(EmployeeRole role){
-        return employeeRepository.findAllByRole(role);
+
+
+        return employeeRepository.findAllByRole(role)
+                                 .stream().filter(e -> e.isInactive() == false).collect(Collectors.toList());
     }
 
     @Override
     public Employee findByUsername(String username){
 
-        return this.employeeRepository.findByUsername(username);
+        Employee employee = this.employeeRepository.findByUsername(username);
+
+        if(employee != null && !employee.isInactive()){
+
+            return employee;
+        }
+        return null;
     }
 }
 

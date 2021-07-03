@@ -24,7 +24,7 @@ public class ProductServiceImplementation implements ProductService{
     public Product addProduct(Product product) {
 
         Product newProduct= productRepository.save(product);
-        return product;
+        return newProduct;
     }
 
     @Override
@@ -45,9 +45,13 @@ public class ProductServiceImplementation implements ProductService{
     }
 
     @Override
+    @Transactional
     public void deleteProduct(int productId) {
 
-        productRepository.deleteById(productId);
+        Optional<Product> productWithdrawn = productRepository.findById(productId);
+        productWithdrawn.ifPresent( p -> {
+            p.setWithdrawn(true);
+        });
 
     }
 
@@ -55,20 +59,25 @@ public class ProductServiceImplementation implements ProductService{
     public Product findOne(int productId) {
 
         Product product = productRepository.findById(productId).orElseThrow();
-        return product;
+
+        if (product != null && !product.isWithdrawn()){
+            return product;
+        }
+        return null;
     }
 
     @Override
     public List<Product> getAllProducts() {
 
-        return productRepository.findAll();
+        return productRepository.findAll().stream()
+                                .filter(p -> p.isWithdrawn() == false).collect(Collectors.toList());
     }
 
     @Override
     public List<Product> getAllAvailableProductsPerColor(ProductColor color){
         return productRepository.findProductByColor(color)
                                 .stream()
-                                .filter(product -> product.getStock() >= 0)
+                                .filter(product ->  product.isWithdrawn() == false && product.getStock() >= 0)
                                 .collect(Collectors.toList());
     }
 
@@ -77,7 +86,7 @@ public class ProductServiceImplementation implements ProductService{
 
                 return productRepository.findAll()
                                  .stream()
-                                 .filter(product -> product.getStock() > 0)
+                                 .filter(product -> product.isWithdrawn() == false && product.getStock() > 0)
                                  .collect(Collectors.toList());
     }
 }

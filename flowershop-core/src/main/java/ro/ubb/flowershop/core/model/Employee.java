@@ -38,17 +38,15 @@ public class Employee extends BaseEntity<Integer>{
     private String phoneNumber;
 
     @NotNull
-//    @Size(min=6, message = "Password should have at least 6 characters")
-//    @Pattern.List ({
-//            @Pattern(regexp = "(?=.*[0-9]).+", message = "Password must contain one digit."),
-//            @Pattern(regexp = "(?=.*[a-z]).+", message = "Password must contain one lowercase letter."),
-//            @Pattern(regexp = "(?=.*[A-Z]).+", message = "Password must contain one upper letter."),
-//            @Pattern(regexp = "(?=.*[!@#$%^&*+=?-_()/\"\\.,<>~`;:]).+", message ="Password must contain one special character."),
-//            @Pattern(regexp = "(?=\\S+$).+", message = "Password must contain no whitespace.")
-//    })
     @Size(min=6, message = "Password should have at least 6 characters")
-    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$", message = "Password must contain one digit, one lowercase letter, one uppercase letter")
+    //@Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$", message = "Password must contain one digit, one lowercase letter, one uppercase letter")
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<ShopOrder> shopOrders;
+
+    @Column(name="is_inactive", columnDefinition = "BOOLEAN DEFAULT false")
+    private boolean inactive;
 
 
 }

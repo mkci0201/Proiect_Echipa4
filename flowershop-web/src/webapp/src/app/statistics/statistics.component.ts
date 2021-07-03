@@ -9,6 +9,7 @@ import {Employee} from "../employees/shared/employee.model";
 import {BestEmployee} from "./shared/bestemployee.model";
 import {map} from "rxjs/operators";
 declare let Chartist: any;
+import {TokenStorageService} from "../login/shared/tokenstorage.service";
 
 
 @Component({
@@ -27,11 +28,12 @@ export class StatisticsComponent implements OnInit {
 
   shopOrdersByDate : ShopOrder[];
   updatedPeriodDate : boolean = false;
+  role: string;
 
   error : any={errorActive:false, errorMessage:''};
 
   constructor( private statisticService : StatisticsService, private shopOrderService:ShopOrderService,
-               private router : Router) { }
+               private router : Router, private tokenStorageService: TokenStorageService ) { }
 
   ngOnInit(): void {
 
@@ -44,7 +46,7 @@ export class StatisticsComponent implements OnInit {
     let barSeries = [];
 
     this.statisticService.getBestSellingProducts().subscribe((response: any) => {
-      // console.log(response);
+      console.log(response);
       response.map(x => {
         pieLabels.push(`${x.product.name}`);
         pieSeries.push( x.product.price *  x.quantity);
@@ -60,6 +62,8 @@ export class StatisticsComponent implements OnInit {
 
       let chart = new Chartist.Pie('#best_selling', data);
     },200)
+
+    this.role = this.tokenStorageService.getUser().roles[0];
   }
 
   getBestSellingProducts() {
@@ -100,7 +104,7 @@ export class StatisticsComponent implements OnInit {
       let barSeries = [];
       this.statisticService.getShopOrdersForPeriod(startDate, endDate).subscribe(o => {
         this.shopOrdersByDate = o;
-
+        console.log(o);
         o.map(order => {
           barLabels.push(order.date);
           let totalPrice = 0;

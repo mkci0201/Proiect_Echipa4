@@ -107,9 +107,15 @@ export class ShoporderNewComponent {
         foundProduct.quantity += quantityAsNumber;
         this.orderedProductsService.updateOrderedProduct(foundProduct);
       }
-    } else {
+    } else if (quantityAsNumber >= 1 && quantityAsNumber <= this.selectedProduct.stock){
       var orderedProduct: OrderedProduct = {id:0, product:this.selectedProduct, quantity: quantityAsNumber};
+
       this.orderedProductsService.addOrderedProduct(orderedProduct.product, orderedProduct.quantity).subscribe((value:OrderedProduct)=>this.orderedProducts.push(value));
+    }
+    else
+    {
+      this.stockError.errorActive = true;
+      this.stockError.errorMessage = 'There are not enough products on stock!';
     }
   }
 
