@@ -2,6 +2,7 @@
 <table class="table">
   <thead>
   <tr>
+    <th></th>
     <th scope="col">#</th>
     <th scope="col">Product name</th>
     <th scope="col">Color</th>
@@ -15,6 +16,11 @@
     <tr *ngFor="let product of products; let i=index "
         [class.selected]="product === selectedProduct"
         (click)="gotoDetail(product)">
+      <td>
+        <div class="img-container">
+          <img src="https://www.rosen.de/media/image/16/1e/ef/Coral-Lions-Rose_00.jpg" alt="">
+        </div>
+      </td>
       <td>{{i+1}}</td>
       <td>{{product.name}}</td>
       <td>{{product.color}}</td>

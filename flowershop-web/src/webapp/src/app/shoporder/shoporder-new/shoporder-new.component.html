@@ -19,40 +19,84 @@
         <div class="mb-3">
           <label for="orderedProduct" class="form-label">Select product:</label>
           <select class="form-select" #orderedProduct id="orderedProduct" (change)="onChange(orderedProduct.value)">
+            <option value="">Select</option>
             <option *ngFor="let option of products" value="{{option.id}}">
-              {{option.color}} {{option.name}} {{option.description}}
+              {{option.color}} - {{option.name}}
             </option>
           </select>
           <br>
-          <div *ngIf="selectedProduct">
-            <div class="mb-3">
-              <label class="form-label">Name:</label>{{selectedProduct.name}}
+          <div class="row mt-4 mb-5" *ngIf="selectedProduct">
+            <div class="col-12 mb-3">
+              <h6>Selected product: {{selectedProduct.color}} - {{selectedProduct.name}}</h6>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Description:</label>{{selectedProduct.description}}
+            <div class="col-12 mb-3">
+              <label class="form-label">Description: </label> {{selectedProduct.description}}
             </div>
-            <div class="mb-3">
-              <label class="form-label">Color:</label>{{selectedProduct.color}}
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Price: </label>{{selectedProduct.price}}
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Stock: </label>{{selectedProduct.stock}}
+            <div class="col-12 mb-3">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Stock</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{selectedProduct.stock}}</td>
+                    <td>{{selectedProduct.price}} lei</td>
+                    <td>{{selectedProduct.color}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div *ngIf="stockError.errorActive" class="alert alert-danger">
               {{stockError.errorMessage}}
             </div>
-            <input type="number" value="1" min="1" max="{{selectedProduct.stock}}" #orderQuantity (change)="onSelectedProductStock(selectedProduct.stock, orderQuantity.value)">
-            <button class="btn btn-light" [disabled]="stockError.errorActive || !orderQuantity.value || orderQuantity.value=='0' " (click)="addProduct(orderQuantity.value)">Add Product</button><br>
+            <div class="col-12">
+              <label for="orderQuantity" class="form-label">Select the quantity: </label>
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="orderQuantity" value="1" min="1" max="{{selectedProduct.stock}}" #orderQuantity (change)="onSelectedProductStock(selectedProduct.stock, orderQuantity.value)">
+            </div>
+            <div class="col-6 d-grid gap-2">
+              <button class="btn btn-secondary" [disabled]="stockError.errorActive || !orderQuantity.value || orderQuantity.value=='0' " (click)="addProduct(orderQuantity.value)">Add Product</button><br>
+            </div>
           </div>
-          <div class="mb-3 card" *ngIf="orderedProducts.length > 0">
-            <legend>Products in the order</legend>
-            <ng-container *ngFor = "let p of orderedProducts">
-              <label>{{p.product.color}} {{p.product.name}} Quantity: {{p.quantity}}</label>
-              <button class="btn btn-link" (click)="delete(p); $event.stopPropagation()">Delete</button>
-            </ng-container>
-            <label class="form-label">Total Price : {{totalPrice}}</label>
+          <div class="row" *ngIf="orderedProducts.length > 0">
+            <div class="col-12">
+              <h5>Products in the order</h5>
+            </div>
+            <div class="col-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let p of orderedProducts">
+                    <td>{{p.product.color}} - {{p.product.name}}</td>
+                    <td>{{p.quantity}}</td>
+                    <td>{{p.product.price}}</td>
+                    <td>
+                      <button class="btn btn-outline-danger" (click)="delete(p); $event.stopPropagation()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+                          <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+                          <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="text-right" align="right">
+                Total Price : {{totalPrice}} lei
+              </h5>
+            </div>
           </div>
         </div> <br>
         <div class="mb-3 d-flex justify-content-between">
