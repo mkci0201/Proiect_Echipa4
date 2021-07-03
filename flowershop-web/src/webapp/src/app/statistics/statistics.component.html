@@ -10,62 +10,81 @@
     <label *ngIf="!bestEmployee && updatedDate"> There is no best employee for the selected month</label><br>
   </div>
 
-  <div>
-    <h4 align="center">Best Selling Products</h4><br>
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Product</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Total Price</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let op of orderedProducts; let i = index">
-          <td>{{i+1}}</td>
-          <td>{{op.product.color}} {{op.product.name}}</td>
-          <td>{{op.quantity}}</td>
-          <td>{{op.product.price}} lei</td>
-          <td>{{totalPricePerProduct(op)}} lei</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="align-content-lg-center">
-    <h4 align="center">Orders for period</h4><br>
-    <label>Select Period: </label>&nbsp;
-
-    <input type="date" #selectedStartDate (change)="dateChanged(selectedStartDate.value, selectedEndDate.value)">&nbsp;
-    <input type="date" #selectedEndDate (change)="dateChanged(selectedStartDate.value, selectedEndDate.value)"><br>
-    <label *ngIf="!shopOrdersByDate && updatedPeriodDate && !error.errorActive">There are no orders for the selected period!</label>
-    <div *ngIf="error.errorActive" class="alert alert-danger">
-      {{error.errorMessage}}
+  <div class="row">
+    <div class="col-12">
+      <h4 align="center">Best Selling Products</h4><br>
     </div>
-    <div *ngIf="shopOrdersByDate">
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Shop Order Identifier</th>
-          <th scope="col">Shop Order Date</th>
-          <th scope="col">Employee</th>
-          <th scope="col">Total Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let op of shopOrdersByDate; let i = index">
-          <td>{{i+1}}</td>
-          <td>{{op.id}}</td>
-          <td>{{op.date}}</td>
-          <td>{{op.employee.firstName}}</td>
-          <td>{{totalPricePerOrderedProducts(op.orderedProducts)}} lei</td>
-        </tr>
-        </tbody>
-      </table>
+    <div class="col-7">
+      <div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Total Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let op of orderedProducts; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{op.product.color}} {{op.product.name}}</td>
+            <td>{{op.quantity}}</td>
+            <td>{{op.product.price}} lei</td>
+            <td>{{totalPricePerProduct(op)}} lei</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-5">
+      <div id="best_selling" class="ct-chart ct-perfect-fourth"></div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h4 align="center" class="mt-4">Orders for period</h4><br>
+    </div>
+    <div class="col-7">
+      <div class="align-content-lg-center">
+        <label>Select Period: </label>&nbsp;
+
+        <input type="date" #selectedStartDate (change)="dateChanged(selectedStartDate.value, selectedEndDate.value)">&nbsp;
+        <input type="date" #selectedEndDate (change)="dateChanged(selectedStartDate.value, selectedEndDate.value)"><br>
+        <label *ngIf="!shopOrdersByDate && updatedPeriodDate && !error.errorActive">There are no orders for the selected period!</label>
+        <div *ngIf="error.errorActive" class="alert alert-danger">
+          {{error.errorMessage}}
+        </div>
+        <div *ngIf="shopOrdersByDate">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Shop Order Identifier</th>
+              <th scope="col">Shop Order Date</th>
+              <th scope="col">Employee</th>
+              <th scope="col">Total Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let op of shopOrdersByDate; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{op.id}}</td>
+              <td>{{op.date}}</td>
+              <td>{{op.employee.firstName}}</td>
+              <td>{{totalPricePerOrderedProducts(op.orderedProducts)}} lei</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-5" *ngIf="shopOrdersByDate">
+      <div id="period" class="ct-chart ct-perfect-fourth"></div>
+    </div>
+  </div>
+
 </div>
 
