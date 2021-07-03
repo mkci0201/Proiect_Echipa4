@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ShopOrder} from "../shared/shoporder.model";
 import {ShopOrderService} from "../shared/shoporder.service";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../../login/shared/tokenstorage.service";
 
 @Component({
   selector: 'app-shoporder-list',
@@ -12,13 +13,24 @@ export class ShoporderListComponent implements OnInit {
   errorMessage: string;
   shopOrders: Array<ShopOrder>;
   selectedShopOrder: ShopOrder;
+  role: string;
 
   constructor(private shopOrderService: ShopOrderService,
+              private tokenStorageService: TokenStorageService,
               private router: Router) {
   }
 
   ngOnInit(): void {
-    this.getAllShopOrders();
+
+
+    this.role = this.tokenStorageService.getUser().roles[0];
+
+    if(this.role == "Administrator"){
+      this.getAllShopOrders();
+    }
+    else {
+      this.getAllOrderPerEmployee(this.tokenStorageService.getUser().id);
+    }
   }
 
   getAllShopOrders() {
@@ -27,6 +39,14 @@ export class ShoporderListComponent implements OnInit {
         shopOrders => this.shopOrders = shopOrders,
         error => this.errorMessage = <any>error
       );
+  }
+
+  getAllOrderPerEmployee(employeeId : number) {
+    this.shopOrderService.getAllOrdersPerEmployee(employeeId)
+      .subscribe(
+        shopOrders => this.shopOrders = shopOrders,
+        error => this.errorMessage = <any>error
+      )
   }
 
   gotoDetail(shopOrder): void {

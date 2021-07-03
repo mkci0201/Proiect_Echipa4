@@ -77,6 +77,20 @@ public class OrderController {
         return new ArrayList<>(orderConverter.convertModelsToDtos(orders));
     }
 
+    @RequestMapping(value = "api/shoporders/filtered/{id}", method = RequestMethod.GET)
+    public List<ShopOrderDto> getOrdersForEmployee(@PathVariable int id) {
+
+        List<ShopOrder> orders = orderService.getShopOrdersPerEmployee(id);
+
+        if(orders != null && !orders.isEmpty() ){
+
+            return new ArrayList<>(orderConverter.convertModelsToDtos(orders));
+        }
+
+        return null;
+
+    }
+
     @RequestMapping(value = "api/bestEmployee/{month}", method = RequestMethod.GET)
     public BestEmployeeDto getBestEmployeeOfMonth(@PathVariable String month) {
 

@@ -7,6 +7,7 @@ import {ShopOrder} from "../shoporder/shared/shoporder.model";
 import {ShopOrderService} from "../shoporder/shared/shoporder.service";
 import {Employee} from "../employees/shared/employee.model";
 import {BestEmployee} from "./shared/bestemployee.model";
+import {TokenStorageService} from "../login/shared/tokenstorage.service";
 
 @Component({
   selector: 'app-statistics',
@@ -24,16 +25,18 @@ export class StatisticsComponent implements OnInit {
 
   shopOrdersByDate : ShopOrder[];
   updatedPeriodDate : boolean = false;
+  role: string;
 
   error : any={errorActive:false, errorMessage:''};
 
   constructor( private statisticService : StatisticsService, private shopOrderService:ShopOrderService,
-               private router : Router) { }
+               private router : Router, private tokenStorageService: TokenStorageService ) { }
 
   ngOnInit(): void {
 
     this.getBestSellingProducts();
     this.getAllShopOrders();
+    this.role = this.tokenStorageService.getUser().roles[0];
   }
 
   getBestSellingProducts() {

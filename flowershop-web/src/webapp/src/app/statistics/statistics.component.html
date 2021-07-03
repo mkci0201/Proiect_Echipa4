@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" align="center">
   <h2>Statistics</h2>
 
   <div>
@@ -8,7 +8,7 @@
     <label *ngIf="bestEmployee"> Best employee of selected month: <b>{{bestEmployee.employee.firstName}} {{bestEmployee.employee.lastName}} </b></label><br>
     <label *ngIf="bestEmployee"> With unbelievable total sales of: <b>{{bestEmployee.totalSales}} lei</b></label>
     <label *ngIf="!bestEmployee && updatedDate"> There is no best employee for the selected month</label><br>
-  </div>
+  </div><br><br>
 
   <div>
     <h4 align="center">Best Selling Products</h4><br>
@@ -32,9 +32,9 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div><br><br>
 
-  <div class="align-content-lg-center">
+  <div class="align-content-lg-center"  *ngIf="role == 'Administrator'">
     <h4 align="center">Orders for period</h4><br>
     <label>Select Period: </label>&nbsp;
 
