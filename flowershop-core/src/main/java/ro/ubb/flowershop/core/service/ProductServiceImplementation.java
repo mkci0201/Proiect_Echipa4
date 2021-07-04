@@ -39,6 +39,7 @@ public class ProductServiceImplementation implements ProductService{
             e.setColor(product.getColor());
             e.setPrice(product.getPrice());
             e.setStock(product.getStock());
+            e.setImageUrl(product.getImageUrl());
         });
 
         return uProduct.orElse(null);

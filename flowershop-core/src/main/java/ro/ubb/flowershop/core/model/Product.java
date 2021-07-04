@@ -44,4 +44,7 @@ public class Product extends BaseEntity<Integer>{
     @Column(columnDefinition="BOOLEAN DEFAULT false")
     private boolean withdrawn;
 
+    @Column(columnDefinition = "NVARCHAR(MAX)")
+    private String imageUrl;
+
 }

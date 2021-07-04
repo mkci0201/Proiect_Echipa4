@@ -13,6 +13,14 @@ body:after {
 
   background: url("assets/images/bg.jpg");
   background-size: cover;
-  opacity: 0.02;
+  opacity: 0.13;
   top: 0;
+
+}
+
+h2 {
+  font-size: 45px;
+  background: -webkit-linear-gradient(#048c4f, #e3a8a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

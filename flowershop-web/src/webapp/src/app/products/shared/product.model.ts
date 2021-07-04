@@ -5,6 +5,7 @@ export class Product {
   color: ProductColor;
   price: number;
   stock: number;
+  imageUrl: string;
 }
 
 

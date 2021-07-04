@@ -17,6 +17,7 @@ public class ProductConverter extends BaseConverter<Product, ProductDto> {
                 .color(dto.getColor())
                 .price(dto.getPrice())
                 .stock(dto.getStock())
+                .imageUrl(dto.getImageUrl())
                 .build();
 
         product.setId(dto.getId());
@@ -26,7 +27,7 @@ public class ProductConverter extends BaseConverter<Product, ProductDto> {
     @Override
     public ProductDto convertModelToDto(Product product) {
         ProductDto productDto = new ProductDto(product.getName(), product.getDescription(),
-                product.getColor(), product.getPrice(), product.getStock());
+                product.getColor(), product.getPrice(), product.getStock(), product.getImageUrl());
         productDto.setId(product.getId());
         return productDto;
     }

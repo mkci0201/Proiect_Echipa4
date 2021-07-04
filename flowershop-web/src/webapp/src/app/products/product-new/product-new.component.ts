@@ -21,9 +21,9 @@ export class ProductNewComponent {
     this.location.back();
   }
 
-  addProduct(name, description, color, price, stock): void {
+  addProduct(name, description, color, price, stock, imageUrl): void {
 
-    this.productService.addProduct(name, description, color, price, stock)
+    this.productService.addProduct(name, description, color, price, stock, imageUrl)
       .subscribe(_ => this.goBack());
   }
 

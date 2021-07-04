@@ -1,0 +1,15 @@
+.img-container {
+  max-width: 60px;
+  display: flex;
+  align-items: center;
+
+
+}
+.img-container img{
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+td {
+  max-width: 450px;
+}

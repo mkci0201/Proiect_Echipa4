@@ -47,10 +47,16 @@ export class StatisticsComponent implements OnInit {
 
     this.statisticService.getBestSellingProducts().subscribe((response: any) => {
       console.log(response);
-      response.map(x => {
+      var index  = 0;
+      for (var p of response) {
+        pieLabels.push(`${p.product.name}`);
+        pieSeries.push( p.product.price *  p.quantity);
+        if (index++ == 10) break;
+      }
+      /*response.map(x => {
         pieLabels.push(`${x.product.name}`);
         pieSeries.push( x.product.price *  x.quantity);
-      });
+      });*/
     });
     setTimeout(function() {
       let data = {
@@ -103,16 +109,21 @@ export class StatisticsComponent implements OnInit {
       let barLabels = [];
       let barSeries = [];
       this.statisticService.getShopOrdersForPeriod(startDate, endDate).subscribe(o => {
-        this.shopOrdersByDate = o;
-        console.log(o);
-        o.map(order => {
-          barLabels.push(order.date);
-          let totalPrice = 0;
-          order.orderedProducts.map(z => {
-            totalPrice += (z.quantity * z.product.price)
+        if (o != null) {
+          this.shopOrdersByDate = o.sort((a, b) => (a.date > b.date) ? 1 : -1);
+          o.map(order => {
+            barLabels.push(order.date);
+            let totalPrice = 0;
+            order.orderedProducts.map(z => {
+              totalPrice += (z.quantity * z.product.price)
+            })
+            barSeries.push(totalPrice)
           })
-          barSeries.push(totalPrice)
-        })
+        }
+        else {
+          this.shopOrdersByDate = o;
+        }
+          console.log(o);
       });
 
       setTimeout(function() {
@@ -126,7 +137,7 @@ export class StatisticsComponent implements OnInit {
       this.updatedPeriodDate = true;
       let startDateAsDate = new Date(startDate);
       let endDateAsDate = new Date(endDate);
-      if (startDateAsDate >= endDateAsDate) {
+      if (startDateAsDate > endDateAsDate) {
         this.error.errorActive = true;
         this.error.errorMessage = 'The start date must be before the end date!';
       }

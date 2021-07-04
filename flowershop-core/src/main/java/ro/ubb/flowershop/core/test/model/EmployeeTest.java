@@ -21,7 +21,7 @@ public class EmployeeTest {
     void createEmployee_should_setAllParametersCorrectly() {
         Set<ShopOrder> shoporders = new HashSet<>();
         Set<OrderedProduct> orderedProducts = new HashSet<>();
-        Product product = new Product("rose", "asdasd", ProductColor.Black, 1.7, 23, false);
+        Product product = new Product("rose", "asdasd", ProductColor.Black, 1.7, 23, false, "Url");
         OrderedProduct orderedProduct = new OrderedProduct(product, 1);
         Employee employeeOne = new Employee("MarinaIli", "Marina","Ilitoi",User,"29march1991","123456789","MarinaIli", shoporders, false);
 
@@ -40,7 +40,7 @@ public class EmployeeTest {
     void EmployeeObject_should_changeAllNewParameters() {
         Set<ShopOrder> shoporders = new HashSet<>();
         Set<OrderedProduct> orderedProducts = new HashSet<>();
-        Product product = new Product("rose", "asdasd", ProductColor.Black, 1.7, 23, false);
+        Product product = new Product("rose", "asdasd", ProductColor.Black, 1.7, 23, false, "Url");
         OrderedProduct orderedProduct = new OrderedProduct(product, 1);
         Employee employeeTwo = new Employee("MarinaC", "Marina","Ilitoi",User,"29march1991","123456789","MarinaIli", shoporders, false);
 

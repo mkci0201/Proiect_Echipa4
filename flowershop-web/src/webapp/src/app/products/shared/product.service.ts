@@ -13,9 +13,9 @@ export class ProductService{
   }
 
   addProduct(name: string, description: string, color: ProductColor,
-             price: number, stock: number): Observable<Product>
+             price: number, stock: number, imageUrl: string): Observable<Product>
   {
-    let product = {name, description, color, price, stock};
+    let product = {name, description, color, price, stock, imageUrl};
     return this.httpClient.post<Product>(this.productsUrl, product)
   }
 

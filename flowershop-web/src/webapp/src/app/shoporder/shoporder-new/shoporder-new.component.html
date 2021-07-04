@@ -71,6 +71,7 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -79,6 +80,11 @@
                 </thead>
                 <tbody>
                   <tr *ngFor = "let p of orderedProducts">
+                    <td>
+                      <div class="img-container">
+                        <img src="{{p.product.imageUrl}}" alt="">
+                      </div>
+                    </td>
                     <td>{{p.product.color}} - {{p.product.name}}</td>
                     <td>{{p.quantity}}</td>
                     <td>{{p.product.price}}</td>

@@ -15,7 +15,7 @@ public class ProductTest {
 
     @Test
     void createProduct_should_setAllParametersCorrectly() {
-        Product productOne = new Product("Trandafir","rosu patat",Red,200.00,100, false);
+        Product productOne = new Product("Trandafir","rosu patat",Red,200.00,100, false, "Url");
 
         assertEquals("Trandafir", productOne.getName());
         assertEquals("rosu patat", productOne.getDescription());
@@ -25,7 +25,7 @@ public class ProductTest {
     }
     @Test
     void ProductObject_should_changeAllNewParameters() {
-        Product productTwo = new Product("Liliac","mov",Purple,100.00,10, false);
+        Product productTwo = new Product("Liliac","mov",Purple,100.00,10, false, "Url");
 
         productTwo.setName("Liliac");
         productTwo.setDescription("alb");

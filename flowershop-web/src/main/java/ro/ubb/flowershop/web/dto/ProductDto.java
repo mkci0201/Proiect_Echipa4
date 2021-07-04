@@ -19,6 +19,7 @@ public class ProductDto extends BaseDto {
     private ProductColor color;
     private double price;
     private int stock;
+    private String imageUrl;
 
     @Override
     public String toString() {
@@ -28,6 +29,7 @@ public class ProductDto extends BaseDto {
                 ", color=" + color +
                 ", price=" + price +
                 ", stock=" + stock +
+                ", imageUrl=" + imageUrl +
                 '}' + super.toString();
     }
 }
